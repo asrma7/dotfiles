@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+matugen image $1
+ln -sf $1 ~/.cache/background/wallpaper
+hyprctl hyprpaper wallpaper ", $1"

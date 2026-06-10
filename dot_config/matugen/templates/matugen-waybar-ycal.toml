@@ -1,0 +1,8 @@
+#  ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓
+#  ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃
+#  ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗
+#   
+
+foreground = "{{colors.on_background.default.hex}}"
+background = "{{colors.background.default.hex}}"
+accent = "{{colors.tertiary.default.hex}}"

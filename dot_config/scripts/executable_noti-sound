@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [ $(swaync-client -D) = "false" ]; then
+	mpv --no-terminal /usr/share/sounds/freedesktop/stereo/bell.oga
+fi

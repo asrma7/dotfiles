@@ -1,0 +1,192 @@
+configuration {
+	modes: "window,drun,run,ssh,calc";
+    sorting-method: "normal";
+	show-icons: true;
+    drun-match-fields: "name";
+    display-run: " ";
+    display-ssh: " ";
+    display-drun: " ";
+    display-window: " ";
+    display-calc: " ";
+    terminal: "/usr/bin/kitty";
+	disable-history: true;
+	sidebar-mode: true;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "./matugen/matugen-rofi.rasi"
+
+* {
+    font: "osevkaAsrma7 Nerd Font 12";
+    margin:     0px;
+    padding:    0px;
+    spacing: 2;
+}
+
+window {
+    location:       center;
+    width:          500;
+    border: 2px;
+    padding: 2.5ch;
+    border-color: @border-color;
+    background-color: @background;
+}
+
+mainbox {
+    padding:    6px;
+    border: 0;
+}
+inputbar {
+    border:         2px;
+    padding:    8px 16px;
+    spacing:    8px;
+    text-color: @normal-foreground;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+    text-color: @normal-foreground;
+}
+
+entry {
+    placeholder:        "Type...";
+    text-color: @normal-foreground;
+}
+
+message {
+    margin:             12px 0 0;
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    padding: 1px;
+}
+
+textbox {
+    padding:    8px 24px;
+    text-color: @foreground;
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @normal-foreground;
+}
+
+mode-switcher {
+    padding: 10px 0 0 0;
+}
+
+listview {
+    background-color:   transparent;
+    margin:     12px 0 0;
+    columns:    1;
+    lines:      6;
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    spacing: 2px;
+    scrollbar: true;
+    padding: 2px 0px 0px;
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 8px;
+    spacing:        8px;
+    border: 0;
+}
+
+element normal normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+element normal urgent {
+    background-color: @urgent-background;
+    text-color: @urgent-foreground;
+}
+
+element normal active {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element selected normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+element selected urgent {
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+element selected active {
+    background-color: @selected-active-background;
+    text-color: @selected-active-foreground;
+}
+
+element alternate normal {
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+element alternate urgent {
+    background-color: @alternate-urgent-background;
+    text-color: @alternate-urgent-foreground;
+}
+
+element alternate active {
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+}
+
+sidebar {
+    border: 2px 0px 0px;
+    border-color: @border-color;
+}
+
+button {
+    text-color: @normal-foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+#inputbar {
+    spacing: 0;
+    text-color: @normal-foreground;
+    padding: 1px;
+}
+
+case-indicator {
+    spacing: 0;
+    text-color: @normal-foreground;
+}

@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 34343918f1f870ee01490944905b1d904080b35a ashutosh <ashutosh@thinkpad.(none)> 1780858509 -0400	clone: from https://github.com/asrma7/neovim
+34343918f1f870ee01490944905b1d904080b35a c4776b772f76ac1b4bd02e572c316a8df8477d62 asrma7 <asrma.sharma@gmail.com> 1780894061 -0400	commit: Add matugen color scheme support and refactor color handling
+c4776b772f76ac1b4bd02e572c316a8df8477d62 6eaf8e92ed354b6ceba7eb8ab1aefdbf3255cade asrma7 <asrma.sharma@gmail.com> 1780902227 -0400	commit: Added gitignore
+6eaf8e92ed354b6ceba7eb8ab1aefdbf3255cade 0fbc92a619ee6b76e4ea22a31658b60f22b82a0b asrma7 <asrma.sharma@gmail.com> 1780902337 -0400	commit: Remove matugen color scheme configuration

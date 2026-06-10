@@ -1,0 +1,34 @@
+/***
+ *    ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓  ┳┓┏┓┏┓┳
+ *    ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃━━┣┫┃┃┣ ┃
+ *    ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗  ┛┗┗┛┻ ┻
+ *                             
+ */
+
+ * {
+    active-background: {{colors.primary.default.hex}};
+    active-foreground: {{colors.on_primary.default.hex}};
+    normal-background: {{colors.background.default.hex}};
+    normal-foreground: {{colors.on_background.default.hex}};
+    urgent-background: {{colors.tertiary.default.hex}};
+    urgent-foreground: {{colors.on_tertiary.default.hex}};
+
+    alternate-active-background: {{colors.background.default.hex}};
+    alternate-active-foreground: {{colors.on_background.default.hex}};
+    alternate-normal-background: {{colors.background.default.hex}};
+    alternate-normal-foreground: {{colors.on_background.default.hex}};
+    alternate-urgent-background: {{colors.background.default.hex}};
+    alternate-urgent-foreground: {{colors.on_background.default.hex}};
+
+    selected-active-background: {{colors.background.default.hex}};
+    selected-active-foreground: {{colors.on_background.default.hex}};
+    selected-normal-background: {{colors.tertiary.default.hex}};
+    selected-normal-foreground: {{colors.on_tertiary.default.hex}};
+    selected-urgent-background: {{colors.secondary.default.hex}};
+    selected-urgent-foreground: {{colors.on_secondary.default.hex}};
+
+    background-color: {{colors.background.default.hex}};
+    background: {{colors.background.default.hex}};
+    foreground: {{colors.on_background.default.hex}};
+    border-color: {{colors.background.default.hex}};
+}

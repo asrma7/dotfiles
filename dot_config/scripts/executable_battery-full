@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+APP_NAME="Power Monitor"
+
+STATE_DIR="${XDG_RUNTIME_DIR:-/run/user/1000}/battery-notify"
+mkdir -p "$STATE_DIR"
+
+ICON_FULL="/usr/share/icons/Papirus-Light/24x24/panel/battery-full-charged.svg"
+
+# Prevent repeated notifications while sitting at 100%
+if [ -f "$STATE_DIR/full" ]; then
+    exit 0
+fi
+
+touch "$STATE_DIR/full"
+
+notify-send \
+    -a "$APP_NAME" \
+    -u low \
+    -i "$ICON_FULL" \
+    "Battery status" \
+    "Battery is fully charged."

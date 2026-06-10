@@ -1,0 +1,4 @@
+#!/bin/bash
+pkill -x swayosd-server
+nohup swayosd-server > /dev/null 2>&1 &
+disown

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+SETTINGS="$HOME/.config/Code/User/settings.json"
+COLORS="/tmp/matugen-vscode.json"
+
+TMP_FILE="$(mktemp)"
+
+cleanup() {
+    rm -f "$TMP_FILE"
+}
+
+trap cleanup EXIT
+
+jq \
+    --slurpfile colors "$COLORS" \
+    '."material-code.colors" = $colors[0]' \
+    "$SETTINGS" > "$TMP_FILE"
+
+mv "$TMP_FILE" "$SETTINGS"

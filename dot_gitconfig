@@ -1,0 +1,15 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = asrma.sharma@gmail.com
+	name = asrma7
+[init]
+	defaultBranch = main
+[pager]
+	diff = diffnav
+[core]
+	excludesfile = /home/ashutosh/.gitignore_global

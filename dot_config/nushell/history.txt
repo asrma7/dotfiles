@@ -1,0 +1,1997 @@
+carapace
+carapace _carapace nushell
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+mkdir $"($nu.cache-dir)"
+carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
+source $"($nu.cache-dir)/carapace.nu"
+config nu
+$env.EDITOR = 'nvim'
+config nu
+exit
+$nu.config-path
+config nu
+$env.EDITOR = 'nvim'
+config nu
+exit
+clear
+nvim .
+config nu
+z hypr
+exit
+config nu
+zoxide nushell
+zoxide nu
+zoxide init nu
+zoxide init nushell
+$nu.env-path
+config nu
+z
+zi
+config nu
+:q
+exit
+config nu
+atuin
+atuin init
+config nu
+exit
+config nu
+exit
+config nu
+hyprpaper
+systemctl start hyprpaper
+z hypr
+ls
+nvim .luarc.json
+paru vscode
+paru visual-code
+paru visual-studio-code
+clear
+code .
+hyprctl
+c
+clear
+carapace _carapace | lines | where {$in =~ "paru"}
+carapace _carapace | lines | where {$in =~ "yay"}
+sudo pacman -S bash-completion
+ls /usr/share/bash-completion/completions/paru
+ls /usr/share/bash-completion/completions/yay
+exit
+paru -S slack
+clear
+paru -Sc
+sudo paru -Sc
+clear
+less /usr/share/bash-completion/completions/yay
+paru less
+clear
+yay -S less 
+c
+clear
+less /usr/share/bash-completion/completions/yay
+cat /usr/share/bash-completion/completions/yay | wl-copy
+cat /usr/share/bash-completion/completions/paru | wl-copy
+paru -Pc
+paru -Pc | grep "goo"
+clear
+yay -Pc | grep "goo"
+yay -Pc
+cat /usr/share/bash-completion/completions/yay
+yay -S bat
+bat /usr/share/bash-completion/completions/yay
+clear
+man paru
+clear
+paru -S man-db man-pages
+clear
+paru -Ss "^goo"
+paru -c goo
+c
+clear
+paru -Pc | grep "goo"
+yay -Pc
+paru goo
+clear
+man paru
+clear
+man paru-conf
+clea
+clear
+cd .config
+cd paru
+ls
+cd /etc
+nvim paru.conf 
+yay -S vifm
+vifm
+sudo nvim paru.conf 
+clear
+nvim paru.conf 
+sudo nvim paru.conf 
+cd /etc/bash_completion.d
+ls
+cd ../
+cd
+cd /usr/share/bash-completion/
+ls
+cd completions/
+ls
+ls paru
+ls paru.bash
+rm -rf paru
+sudo !!
+sudo rm paru 
+sudo mv paru.bash paru
+paru -S slack-desktop-wayland 
+slack
+paru -Rns slack
+paru -S slack-desktop-wayland
+clear
+yay -Rns rofi
+paru -S rofi-wayland
+clear
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+clear
+nvim .tmux.conf
+exit
+tmux
+exit
+ls
+ls -a
+cd tmux
+cd .tmux
+ls
+cd plugins/
+ls
+cd tpm
+ls
+cd
+exit
+bash
+exit
+tmux
+tmux new --vi ~/.tmux.conf
+tmux new -- vi ~/.tmux.conf
+exit
+tmux
+tmux source .tmux.conf
+exit
+tmux
+tmux &
+tmux -a
+exit
+tmux a
+clear
+rofi -dump-config > ~/.config/rofi/config.rasi
+cd .config
+ls
+mkdir rofi
+rofi -dump-config > ~/.config/rofi/config.rasi
+bash
+clear
+cd rofi/
+nvim config.rasi 
+cd ../nvim/
+nvim .
+cd ../
+cd rofi/
+paru -S rofi-calc 
+sudo thunar
+thunar
+sudo !!
+sudo thunar
+nvim .
+cd ../
+cd waybar
+ls
+nvim config.jsonc 
+paru -S inotifywait
+inotifywait
+inotify-tools
+paru -S inotify-tools
+cd .config
+cd ../
+mkdir scripts
+ls
+cd scripts/
+nvim waybar-watch
+chmod +x waybar-watch 
+./waybar-watch
+clear
+nvim waybar-watch
+./waybar-watch
+z waybar
+nvim .
+job unfreeze
+z waybar
+clear
+fc-list
+fc-list | grep asrma
+fc-list | grep Iosevka
+paru -S matugen
+matugen
+clear
+paru -S waybar-ycal 
+systemctl --user enable --now waybar-ycal.service
+cd .cache
+ls
+cd waybar-ycal/
+ls
+cd /etc/pam.d/
+sudo nvim login
+exit
+cd .cache
+cd waybar-ycal/
+ls
+cd /usr/share/waybar-ycal/
+ls
+python popup.py 
+#!/bin/bash<\n>PID_FILE="$HOME/.cache/waybar-ycal/popup.pid"<\n><\n>if [ -f "$PID_FILE" ]; then<\n>    PID=$(cat "$PID_FILE")<\n>    if kill -0 "$PID" 2>/dev/null; then<\n>        kill -SIGUSR1 "$PID"<\n>        exit 0<\n>    fi<\n>fi<\n><\n># Not running — restart via systemd if enabled, else launch directly<\n>if systemctl --user is-enabled waybar-ycal.service &>/dev/null; then<\n>    systemctl --user start waybar-ycal.service<\n>else<\n>    python3 "$HOME/.config/waybar-ycal/popup.py" &<\n>fi
+clear
+systemctl --user start waybar-ycal.service
+python3 "$HOME/.config/waybar-ycal/popup.py"
+python3 "popup.py"
+cat toggle.sh 
+ls
+nvim bar.py 
+clear
+python3 bar.py
+nvim popup.py 
+code .
+paru -S hyprpolkitagent
+systemctl --user start hyprpolkitagent
+systemctl --user enable --now hyprpolkitagent.service
+c
+clear
+python3 popup.py
+cd .config
+cd waybar-ycal/
+ls
+nvim .gitignore
+paru -Rns waybar-ycal
+yay -S waybar-ycal
+systemctl --user enable --now waybar-ycal.service
+z waybar
+zi waybar
+code .
+z waybar
+z scripts
+ls
+./waybar-watch &
+z waybar-watch
+zi waybar
+ls
+chmod +x bar.py 
+chmod +x popup.py
+chmod +x toggle.sh 
+clear
+z hypr
+~/scripts
+~/.config/scripts
+z hypr
+nvim conf
+z conf
+z hypr/conf
+nvim autostart.lua 
+~/.config/scripts/waybar-launch
+nvim autostart.lua 
+z waybar
+code .
+mpc
+paru -S mpc 
+mpc
+paru -S mpd
+mpd
+sudo systemctl enable mpd.service 
+sudo systemctl start mpd.service 
+mpc
+paru -S waybar-mpd
+yay -S spotify
+mpd
+mpc
+mpc -h
+mpc --help
+mpd --version
+mpc add "https://icecast.radiofrance.fr/fip-hifi.aac"
+mpc play
+mpc add "https://youtube.com/watch?v=dQw4w9WgXcQ"
+mpc play
+mpc playlist
+https://chatgpt.com/c/6a237ff5-82bc-83ea-8b43-4443d6f72abe
+let url = (<\n>    yt-dlp -g "https://youtube.com/watch?v=dQw4w9WgXcQ"<\n>    | lines<\n>    | first<\n>)<\n><\n>mpc add $url
+paru -S yt-dlp
+let url = (<\n>    yt-dlp -g "https://youtube.com/watch?v=dQw4w9WgXcQ"<\n>    | lines<\n>    | first<\n>)<\n><\n>mpc add $url
+mpc playlist
+mpc play
+mpc outputs
+yay -Rns mpd mpc
+z waybar-ycal
+ls -l
+z waybar-ycal
+code .
+paru -S postman
+z .cache/waybar-ycal/
+ls
+cat token.json 
+cd .config/scripts
+nvim postman
+cd
+cd .local
+cd share/
+ls
+cd applications/
+ls
+cd /usr/share/applications/
+ls
+nvim postman.desktop 
+sudo !!
+sudo nvim postman.desktop 
+z scripts
+chmod +x postman 
+z scripts
+nvim postman.desktop 
+cd /opt
+ls
+nvim postman 
+cd /etc/systemd/
+l
+ls
+cd ../
+cd
+cd .config/
+cd systemd/
+ls
+cd user/
+ls
+cd
+cd /etc/systemd/
+ls
+cd ../
+ls
+cd sysctl.d/
+ls
+cd ../
+ls
+clear
+systemctl --user enable --now waybar-ycal.service
+systemctl status waybar-ycal
+systemctl --user status waybar-ycal
+cd /usr/lib/systemd/user/
+ls
+sudo nvim waybar-ycal.service 
+systemctl --user restart waybar-ycal
+systemctl --user daemon-reload
+sudo systemctl disable waybar-ycal
+systemctl --user disable --now waybar-ycal.service
+systemctl --user enable --now waybar-ycal.service
+systemctl --user restart --now waybar-ycal.service
+sudo nvim waybar-ycal.service 
+~/.config/waybar-ycal/popup.py
+python ~/.config/waybar-ycal/popup.py
+clear
+sudo nvim waybar-ycal.service 
+systemctl --user disable --now waybar-ycal.service
+systemctl --user enable --now waybar-ycal.service
+systemctl --user restart --now waybar-ycal.service
+systemctl --user status waybar-ycal
+systemctl --user restart --now waybar-ycal.service
+z systemd
+zi systemd
+cd /usr/lib/systemd/user/
+ls
+fc-list | grep Iosevka
+fc-match --sort ':charset=f5e7' | head
+fc-query (fc-match "IosevkaAsrma7 Nerd Font" | split row ":" | get 0) | grep F5E7
+fc-match -v "IosevkaAsrma7 Nerd Font" | lines | where ($it | str contains "file: ")
+fc-query /usr/share/fonts/TTF/IosevkaAsrma7NerdFont-Regular.ttf | grep -i f5e7
+printf "\u{f5e7}\n"
+cd .config
+ls
+cd kitty/
+ls
+printf "\u{f5e7}\n"
+fc-query /usr/share/fonts/TTF/IosevkaAsrma7NerdFont-Regular.ttf | grep -i f5e7
+ls
+clear
+fc-query /usr/share/fonts/TTF/IosevkaAsrma7NerdFont-Regular.ttf | grep -i f5e7
+printf "\u{f5e7}\n"
+paru -S woff2-font-awesome
+fc-list | grep Font
+fc-list | grep Font Awesome
+fc-list | grep "Font Awesome"
+paru -S otf-font-awesome 
+fc-list | grep "Font Awesome"
+yay -Rns woff2-font-awesome 
+paru -Rns otf-font-awesome 
+paru -S woff2-font-awesome
+yay -Rns woff2-font-awesome
+paru -S otf-font-awesome
+fc-list
+fc-list | grep Iosevka
+paru -S pavucontrol 
+z conf
+nvim env.lua 
+yay -S adwaita-dark 
+clear
+paru -S gvfs
+cat .config/hypr/conf/env.lua 
+$env.GTK_DEBUG = "interactive waybar"
+waybar
+clear
+z conf
+nvim env.lua 
+systemctl --user daemon-reload
+hyprctl reload
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+rofi -show drun
+rofi -show ssh
+rofi -show run
+rofi -show calc
+rofi
+rofi -show combi
+clear
+z rofi
+rofi -show combi
+rofi -show calc
+cd .cache/
+cd
+ls
+ls -a
+rofi -modi run,window,calc,ssh -show calc
+rofi -modi run,window,calc,ssh
+fc-list | grep Iosevka
+nvim config.rasi 
+nmcli
+notify-send "Getting list of available Wi-Fi networks..."
+sudo apt install libnotify-bin
+yay -S libnotify 
+notify-send "Getting list of available Wi-Fi networks..."
+paru -S swaync 
+notify-send "Getting list of available Wi-Fi networks..."
+swaync 
+clear
+cd Downloads
+cd
+cd Downloads
+ls
+tar DotfilesV2-4.tar.gz 
+tar 00usage
+tar --usage
+clear
+tar -xfvg DotfilesV2-4.tar.gz
+tar -xf DotfilesV2-4.tar.gz
+ls
+cd Project-Symphony/
+ls
+cd ../
+rm -rf DotfilesV2-4.tar.gz
+ls
+cd Project-Symphony/
+ls
+cd swaync/
+ls
+code .
+cd ../
+cp swaync ~/.config/
+cp -r swaync ~/.config/
+notify-send "Getting list of available Wi-Fi networks..."
+ls
+cat README.txt 
+ls
+cd Foot/
+ls
+cd ../
+ls
+cd
+.config
+swaync
+cd swaync/
+ls
+code .
+notify-send "Getting list of available Wi-Fi networks..."
+cd ../
+rm -rf swaync/
+z hypr/conf
+nvim autostart.lua 
+notify-send "Getting list of available Wi-Fi networks..."
+cd .config
+mkdir swaync
+nvim config.json
+mv config.json swaync/
+cd swaync/
+code .
+notify-send "Getting list of available Wi-Fi networks..."
+z hypr/conf
+nvim rules.lua 
+code .
+cd ../
+code .
+z hypr
+code 
+code .
+exit
+exit
+c
+clear
+z hypr
+code .
+exit
+cd .config
+rm -rf hypr/
+mv hypr1 hypr
+z hypr
+ls
+mv hypr1/* .
+rm -rf hypr1/
+rm hyprland.conf
+ls
+exit
+z hypr
+rm -rf hyprland.conf
+exit
+hyprctl clients 
+hyprctl clients -j
+cliphist
+paru -S cliphist
+kitty bash -i -c 'Docs'
+bash -i -c 'Docs'
+tasks
+matugen image backgrounds/japan.jpg
+cd .cache/
+ls
+cd .config
+cd 
+cd .config
+ls
+mkdir matugen
+cd Downloads/
+ls
+yay -S 7zip
+7z e Matuprland-matugen.zip 
+ls
+rm -rf Matuprland-matugen.zip
+rm -rf Project-Symphony/
+cd templates/
+ls
+cd ../
+nvim config.toml
+ls
+mv config.toml matugen/
+matugen image backgrounds/japan.jpg
+cd .config
+cd waybar/
+ls
+cd matugen/
+ls
+cat matugen-waybar.css 
+ls
+ls ~/.config/waybar/matugen/matugen-waybar.css
+c
+clear
+notify-send "Getting list of available Wi-Fi networks..."
+paru -S swayosd 
+swayosd
+swayosd-client 
+swayosd-client --output-volume mute-toggle
+systemctl enable swayosd-libinput-backend.service 
+systemctl start swayosd-libinput-backend.service
+swayosd-client --output-volume mute-toggle
+cd .config
+mkdir swayosd
+cd swayosd/
+nvim style.css
+z swayosd
+code .
+code
+yay -S vlc
+yay -S vlc-plugins-all 
+yay -S stremio
+clear
+yay -Sc
+clear
+cd /tmp
+ls
+cd 
+paru -S stremio-linux-shell-git 
+stremio
+paru -Qs stremio
+paru -S stremio-service 
+paru -S stremio-service
+stremio
+stremio-service 
+paru -Rns stremio-service 
+$env.SERVER_PATH = "~/.config/stremio/server.js"
+stremio
+$env.SERVER_PATH = ".config/stremio/server.js"
+stremio
+clear
+stremio
+yay -Rns stremio-linux-shell-git 
+cd .config
+rm -rf stremio/
+paru -S flatpak
+flatpak install flathub com.stremio.Stremio
+flatpak run stremio
+reboot
+z swayosd
+code .
+pkill swayosd
+pkill swayosd-server
+swayosd-server
+alsamixer
+yay -S alsamixer
+ls /sys/class/leds
+echo 1 | sudo tee /sys/class/leds/platform::mute/brightness
+echo 0 | sudo tee /sys/class/leds/platform::mute/brightness
+echo 1 | sudo tee /sys/class/leds/platform::mute/brightness
+ls /sys/class/leds
+echo 1 | sudo tee /sys/class/leds/platform::micmute/brightness
+echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness
+lsmod | grep thinkpad_acpi
+echo thinkpad_acpi | sudo tee /etc/modules-load.d/thinkpad_acpi.conf
+dmesg | grep -i mute
+sudo !!
+sudo dmesg | grep -i mute
+sudo dmesg | grep -i thinkpad
+sudo dmidecode -s system-product-name
+cat /sys/class/leds/platform::micmute/brightness
+cat /sys/class/leds/platform::micmute/max_brightness
+cat /sys/class/leds/platform::micmute/trigger
+hostnamectl | grep "Hardware Model"
+cat /sys/class/leds/platform::micmute/brightness
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+cat /sys/class/leds/platform::micmute/brightness
+uname -r
+echo none | sudo tee /sys/class/leds/platform::micmute/trigger
+echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness
+sudo pacman -S alsa-utils
+echo 1 | sudo tee /sys/class/leds/platform::micmute/brightness
+echo audio-micmute | sudo tee /sys/class/leds/platform::micmute/trigger
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+cat /sys/class/leds/platform::micmute/brightness
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+cat /sys/class/leds/platform::micmute/brightness
+alsamixer 
+echo none | sudo tee /sys/class/leds/platform::micmute/trigger
+echo 1 | sudo tee /sys/class/leds/platform::micmute/brightness
+echo audio-micmute | sudo tee /sys/class/leds/platform::micmute/trigger
+alsamixer
+amixer -c 1 scontrols
+amixer scontrols
+sudo alsactl store
+reboot
+amixer -c 1 scontrols
+alsamixer
+sudo alsactl store
+amixer -c 1 scontrols
+amixer scontrols
+# echo audio-micmute > /sys/class/leds/platform::micmute/trigger
+acpi_listen
+xev
+cat /sys/class/leds/platform::micmute/brightness
+# echo audio-micmute > /sys/class/leds/platform::micmute/trigger
+echo audio-micmute > /sys/class/leds/platform::micmute/trigger
+cat /sys/class/leds/platform::micmute/brightness
+echo 1 | sudo tee /sys/class/leds/platform::micmute/brightness
+cat /sys/class/leds/platform::micmute/brightness
+cat /sys/class/leds/platform::micmute/brightness/trigger
+cat /sys/class/leds/platform::micmute/trigger
+# echo audio-micmute > /sys/class/leds/platform::micmute/trigger
+sudo su
+clea
+clear
+alsamixer
+sudo alsactl store
+reboot
+alsamixer
+clear
+wpctl set-mute @DEFAULT_SOURCE@ toggle
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+z scripts
+ls
+nvim micmute
+chmod +x micmute 
+./micmute
+z hupr/conf
+z hypr/conf
+nvim keybinds.lua 
+notify-send "Getting list of available Wi-Fi networks..."
+notify-send "Getting list of available Wi-Fi networks"
+notify-send "RGetting list of available Wi-Fi networks"
+z waybar
+nvim .
+code .
+notify-send "RGetting list of available Wi-Fi networks"
+z swaync
+cat style.css 
+c
+clear
+z matugen
+cd ../../matugen/
+ls
+cd templates/
+ls
+cat matugen-waybar.css 
+hyprctl hyprpaper wallpaper ', ~/backgrounds/goku.jpg'
+matugen image backgrounds/goku.jpg
+code .
+z matugen
+code .
+matugen image backgrounds/goku.jpg
+paru -S pywalfox
+clear
+matugen image backgrounds/goku.jpg
+swayosd-server
+matugen image backgrounds/goku.jpg
+z scripts
+ls
+nvim restart-swayosd
+chmod +x restart-swayosd 
+matugen image backgrounds/goku.jpg
+z scripts
+nvim restart-swayosd
+matugen image backgrounds/goku.jpg
+cd
+./restart-swayosd
+matugen image backgrounds/goku.jpg
+nvim restart-swayosd
+z scripts
+nvim restart-swayosd
+./restart-swayosd
+clear
+./restart-swayosd
+nvim restart-swayosd
+z scripts
+nvim restart-swayosd
+./restart-swayosd
+nvim restart-swayosd
+./restart-swayosd
+clear
+matugen image backgrounds/japan.jpg
+touch wallpaper
+chmod +x wallpaper 
+nvim wallpaper 
+./wallpaper ~/backgrounds/japan.jpg
+nvim wallpaper 
+./wallpaper ~/backgrounds/japan.jpg
+nvim wallpaper 
+nvim wallpaper 
+./wallpaper ~/backgrounds/japan.jpg
+nvim wallpaper
+./wallpaper ~/backgrounds/japan.jpg
+nvim wallpaper
+./wallpaper ~/backgrounds/japan.jpg
+./wallpaper ~/backgrounds/goku.jpg
+nvim wallpaper
+./wallpaper ~/backgrounds/japan.jpg
+./wallpaper ~/backgrounds/goku.jpg
+cd .cache
+mkdir background
+ln -s
+nvim wallpaper
+./wallpaper ~/backgrounds/goku.jpg
+z hypr/conf
+ls .cache/background/
+nvim autostart.lua 
+z scripts
+clear
+./wallpaper ~/backgrounds/japan.jpg
+./wallpaper ~/backgrounds/goku.jpg
+nvim wallpaper
+./wallpaper ~/backgrounds/goku.jpg
+z rofi
+clear
+nvim .
+code .
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+ssh
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+sudo systemctl disable waybar-ycal
+clear
+sudo systemctl stop waybar-ycal
+systemctl stop waybar-ycal
+systemctl status waybar-ycal
+systemctl --user restart --now waybar-ycal.service
+systemctl status waybar-ycal
+sudo systemctl status waybar-ycal
+sudo systemctl status waybar-ycal.service
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+ps
+ps | grep waybar
+ps | grep python
+pkill python
+ps | grep python
+ps | grep python3
+ps | grep python
+pkill python
+ps | grep python
+ps
+c;ear
+clear
+ps | grep python
+kill 79396
+ps | grep python
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+z kitty
+code .
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+clear
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+z scripts
+code .
+z hypr/conf
+nvim autostart.lua 
+paru -S zathura
+clear
+bat .bashrc 
+clear
+cd .config
+ls
+cd bat
+ls
+cd themes/
+ls
+cd ../
+clear
+paru -S nvchad
+nvim
+nvim .
+paru -Rns nvchad-git
+clear
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim
+rm -rf .config/nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim
+nvim
+nvim /
+nvim .
+clear
+cd
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+nvim
+clear
+paru -S cava
+c
+clear
+cava
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+nvim
+z nvim
+nvim .
+code .
+nvim
+matugen image backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+nvim
+nvim .
+nvim
+z scripts
+ls
+nvim wifi-menu
+chmod +x wifi-menu 
+./wifi-menu
+yay -S nmcli
+paru -S networkmanager 
+nm-applet
+nmcli
+networkctl 
+nmcli
+nm 
+nmtui 
+nm-online 
+nmblookup 
+nmtui-edit 
+systemctl network-manager start
+sudo systemctl start NetworkManager
+nmcli
+sudo systemctl enable NetworkManager.service 
+z scripts
+clear
+./wifi-menu
+nvim wifi-menu
+./wifi-menu
+paru -S rofi-wifi 
+rofi -no-config -show wifi -iface wlo1
+z rofi
+rofi -no-config -show wifi -iface wlo1
+rofi -no-config -show wifi -iface wlan0
+nvim config.rasi 
+paru -Rns rofi-wifi
+clear
+ls
+nvim wifi.rasu
+nvim wifi.rasi
+ls
+rofi -c ~/.config/rofi/wifi.rasi
+z scripts
+nvim wifi-menu 
+./wifi-menu
+nvim wifi-menu 
+rofi -c ~/.config/rofi/wifi.rasi -show drun
+z rofi
+rm -rf wifi.rasi
+rofi -c ~/.config/rofi/wifi.rasi -show drun
+clear
+nvim wifi-menu 
+./wifi-menu
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+z rofi
+nvim wifi.rasi
+z scripts
+./wifi-menu
+clear
+nvim wifi-menu 
+./wifi-menu
+nmtui
+clear
+./wifi-menu
+nvim wifi-menu 
+./wifi-menu
+iwctl
+nvim wifi-menu 
+./wifi-menu
+nvim wifi-menu 
+./wifi-menu
+exit
+z waybar
+nvim .
+z waybar
+z scripts
+ls
+cat waybar-watch 
+pkill -SIGUSR2 waybar
+nvim wifi-menu 
+rofi -show wifi -modi "wifi:$HOME/.config/scripts/wifi-menu" -theme ~/.config/rofi/wifi.rasi
+rofi -show wifi -modi "wifi:~/.config/scripts/wifi-menu" -theme ~/.config/rofi/wifi.rasi
+nvim wifi-menu 
+nvim config.jsonc 
+pkill -SIGUSR2 waybar
+nm-tui
+nmtui
+nm-applet
+paru -S nm-applet
+sudo pacman -S networkmanager
+sudo pacman -S network-manager-applet
+nm-connection-editor 
+nm-applet
+clear
+rm -rf ~/.config/scripts/wifi-menu
+nvim .
+nvim wifi-menu 
+ls
+z hypr/conf
+nvim .
+z hypr/conf
+nvim autostart.lua 
+z waybar
+nvim .
+z scripts
+nvim waybar-watch 
+nvim config.jsonc 
+z waybar
+z scripts
+nvim waybar-watch 
+z waybar
+nvim .
+nvim waybar-watch 
+nvim config.jsonc 
+z scripts
+./waybar-watch
+nvim waybar-watch 
+./waybar-watch
+nvim waybar-watch 
+z waybar
+sudo pacman -S papirus-icon-theme
+clear
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+clear
+cd .config
+ls
+cd gtk-3.0/
+ls
+nvim gtk.css 
+paru -S tokyonight-gtk-theme-git
+gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Dark"
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+pkill nm-applet<\n>GTK_THEME=Tokyonight-Dark nm-applet &
+sudo gtk-update-icon-cache /usr/share/icons/Papirus-Dark
+nm-applet
+pkill nm-applet && nm-applet &
+bash
+exit
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+sudo gtk-update-icon-cache /usr/share/icons/Papirus-Dark
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | env THEMES="Papirus-Light" sh
+clear
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Light'
+gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Light"
+blueman
+paru -S blueman
+blueman
+blueman-applet 
+blueman-tray 
+blueman-tray --help
+z hypr/conf
+nvim .
+blueman-applet -h
+gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Dark"
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+z waybar
+nvim .
+nvim config.jsonc 
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Light'
+z nvim
+cd ./
+cd ../
+rm -rf nvim
+git clone https://github.com/asrma7/neovim nvim
+nvim
+paru -S nvm
+nvim .bashrc
+nvm
+paru -Rns nvm
+paru -S fnm
+fnm
+nvim .bashrc
+clear
+fnm 
+fnm install
+fnm list
+node --version
+nvim
+npm
+which node
+type node
+bash
+clear
+fnm install 26.0.2
+fnm ls-remote
+node --version
+fnm install 26.2.0
+npm
+fnm use 26.2.0
+z nushell
+cd .config/nushell
+nvim .
+nvim env.nu
+exit
+fnm use 26.2.0
+npm
+exit
+npm
+which npm
+nvim
+paru -S unzip
+nvim
+nvim .
+nvim
+paru -Qs trees
+fnm install latest
+fnm install --lts
+fnm default --lts
+fnm default
+fnm default 24.16.0
+fnm list
+xdg-user-dirs-update --force
+sudo pacman -S xdg-user-dirs
+xdg-user-dirs-update --force
+ls
+paru -S fprintd 
+fprintd
+sudo nvim /etc/pam.d/system-local-login 
+$ fprintd-enroll
+fprintd-enroll 
+sudo !!
+sudo fprintd
+sudo fprintd-enroll 
+fprintd-verify 
+sudo fprintd-verify
+sudo
+z /etc/pamd
+z /etc/pam.d/
+ls
+nvim system-local-login 
+sudo nvim sudo 
+sudo su
+z /etc/pam.d/
+nvim system-local-login 
+nvim sudo
+sudo su
+cd /etc/pam.d/
+yay -S pam-fprint-grosshack
+nvim greetd 
+ls
+sudo nvim system-auth
+sudo nvim sudo
+sudo nvim greetd 
+sudo nvim hyprlock
+nvim greetd 
+sudo nvim greetd 
+sudo su
+fprintd-enroll
+sudo fprintd-enroll -h
+sudo fprintd-enroll ashutosh
+sudo fprintd-verify ashutosh
+sudo fprintd-delete 
+sudo fprintd-list 
+sudo fprintd-list root
+sudo fprintd-delete -f right-index-finger
+sudo fprintd-list
+sudo fprintd-list root
+sudo fprintd-delete -f 0
+sudo fprintd-delete root
+sudo fprintd-list ashutosh
+sudo fprintd-enroll ashutosh
+sudo su
+z /etc/pam.d/
+sudo nvim hyprlock 
+nvim greetd 
+sudo nvim greetd 
+cd /etc/pam.d/
+nvim .
+:q
+exit
+cd .config/
+sudo cp -r nvim/ /root/.config/
+z pam.d
+sudo nvim .
+sudo su
+z pam.d
+nvim hyprlock
+sudo nvim hyprlock
+z pam.d
+nvim .
+sudo nvim system-auth 
+z hypr
+nvim .
+code .
+hostname
+cat /etc/hostname
+playerctl metadata --format '{{ artist }} - {{ title }}'
+z scripts
+ls
+nvim lock-battery.sh
+./lock-battery.sh
+nvim lock-network.sh
+./lock-network.sh
+~/.config/scripts/lock-network.sh
+clear
+nvim lock-network.sh
+~/.config/hypr/scripts/lock-player.sh
+~/.config/scripts/lock-player.sh
+z scripts
+~/.config/scripts/lock-battery.sh
+cd /sys/class/power_supply/
+ls
+~/.config/scripts/lock-battery.sh
+z waybar
+nvim .
+nvim lock-keyboard.sh
+./lock-keyboard.sh
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+waybar
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+z matugen
+nvim config.toml 
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+z scripts
+z waybar
+ls
+cd matugen/
+ls
+nvim waybar-watch 
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+cava
+clear
+nvim
+:q
+z nvim
+ls
+cd lua
+cd asrma7/
+ls
+pwd
+cd lazy/
+ls
+ls lualine.lua
+pwd
+nvim .
+nvim
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+clear
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+nvim
+nvim .
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+nvim .
+git status
+git restore lua/asrma7/utils/color_overrides.lua 
+git diff lua/asrma7/utils/init.lua
+nvim .
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+clear
+code .
+nvim .
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+git config set user.name "asrma7"
+git config set user.email "asrma.sharma@gmail.com"
+paru -S gh
+paru -S github-cli 
+gh auth login
+clear
+cd .config/Code/
+ls
+cd User
+ls
+thunar .
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+jq
+paru -S jq
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+clear
+bash
+z scripts
+nvim matugen-vscode
+chmod +x matugen-vscode 
+clear
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+nvim matugen-vscode
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+jq empty /tmp/matugen-vscode.json
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+jq empty /tmp/matugen-vscode.json
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+cat /tmp/matugen-vscode.json 
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+cat /tmp/matugen-vscode.json 
+cat /tmp/matugen-vscode.json
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+clear
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+jq empty /tmp/matugen-vscode.json
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+nvim
+nvim test.py
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+nvim test.py
+rm -rf test.py
+nvim
+ls
+nvim wifi-conn-strength 
+gh extension install dlvhdr/gh-dash
+gh dash
+yay -S lazygit 
+z nvim
+nvim .
+nvim .gitignore 
+gs
+git status
+ga .
+git add .
+gcm "Added gitignore"
+gp
+git commit -m "Added gitignore"
+gp
+git push
+clear
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+gs
+git rm lua/asrma7/matugen-nvim.lua 
+git rm --cached lua/asrma7/matugen-nvim.lua
+gs
+git status
+ls lua/asrma7/
+ga .
+code .
+clear
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+paru -S wlogout
+wlogout 
+clear
+cd Downloads/
+ls
+unzip HyDE-Configs-.config.zip 
+ls
+mv wlogout ~/.config/wlogout
+wlogout
+rm -rf HyDE-Configs-.config.zip
+ls
+z .config
+ls
+cd wlogout/
+nvim .
+ls
+code .
+wlogout
+paru -S chezmoi 
+clear
+chezmoi init
+chezmoi add .bashrc 
+ls
+ls -a
+cat .inputrc 
+chezmoi add .tmux.conf 
+cd .config/
+ls
+chezmoi add Code
+cd .local/share/
+ls
+cd chezmoi/
+ls
+chezmoi add Code/User/settings.json 
+cat dot_config/
+cd dot_config/
+ls
+cd private_Code/
+ls
+cd User/
+ls
+cd
+z chezmoi
+chezmoi add hypr
+chezmoi add kitty
+chezmoi add matugen
+chezmoi add nushell
+chezmoi add nvim
+chezmoi add rofi
+chezmoi add scripts
+chezmoi add swaync
+chezmoi add swayosd
+chezmoi add Thunar
+chezmoi add systemd
+chezmoi add vifm
+chezmoi add waybar
+chezmoi add waybar-ycal
+chezmoi add wlogout
+chezmoi add zathura
+chezmoi add starship.toml 
+chezmoi destroy waybar-ycal
+chezmoi forget waybar-ycal
+clear
+cat ~/.local/share/chezmoi/.chezmoiignore
+nvim ~/.local/share/chezmoi/.chezmoiignore
+chezmoi forget waybar-ycal
+chezmoi add waybar-ycal
+cat ~/.local/share/chezmoi/.chezmoiignore
+nvim ~/.local/share/chezmoi/.chezmoiignore
+cat ~/.local/share/chezmoi/.chezmoiignore
+cat ~/.config/waybar-ycal/credentials.json
+chezmoi forget waybar-ycal
+chezmoi add waybar-ycal
+chezmoi forget waybar-ycal
+chezmoi add waybar-ycal
+clear
+ls
+chezmoi edit-config hypr/conf/keybind.lua
+chezmoid edit-config
+chezmoi edit-config
+chezmoi edit
+chezmoi edit hypr/conf/keybinds.lua 
+chezmoi apply -v hypr
+clear
+cd wlogout/
+z hypr/conf
+wlogout
+nvim .
+cp /etc/wlogout/style.css
+cp /etc/wlogout/style.css .
+cp /etc/wlogout/layout .
+code .
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+z hypr/conf
+paru -R wlogout
+paru -Rns wlogout
+paru -S wleave
+wleave
+rm -rf .config/wlogout/
+wlogout
+wleave
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+clear
+z hypr/conf
+nvim keybinds.lua 
+c
+cd
+clear
+z .config
+ls
+mkdir wleave
+cd wleave/
+code .
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+cp /etc/wleave/layout.json .config/wleave/
+c
+clear
+z hypr/conf
+nvim autostart.lua 
+wleave --service
+clear
+wleave --service
+sudo wleave --service
+man 5 wleave
+wleave
+clear
+ps | where name =~ wleave
+pkill wleave
+wleave
+wleave
+wleave --help
+wleave --service=false
+z hypr/conf
+clear
+z hypr/conf
+nvim autostart.lua 
+nvim keybinds.lua 
+z scripts
+nvim show-wleave
+./show-wleave
+nvim show-wleave 
+./show-wleave
+wleave
+z scripts
+z hypr/conf
+wleave --service
+pgrep
+pgrep -fx 'wleave'
+cat keybinds.lua 
+wleave --service
+nvim keybinds.lua 
+nvim autostart.lua 
+z hypr/conf
+nvim autostart.lua 
+z hypr/conf
+ls
+pgrep -fx 'wleave'
+cat autostart.lua 
+nvim autostart.lua 
+paru -Qs slack
+paru -S lbn 
+lbn
+systemctl --user enable --now lbn
+lbn
+z hypr/conf
+nvim autostart.lua 
+pgrep -fx 'wleave'
+pgrep -ax 'wleave'
+pgrep -ax 'lbn'
+paru -S greetd-qtgreet
+bash
+clear
+paru -Rns greetd-tuigreet-fork-bin 
+paru -Rns greetd-agreety 
+cd /etc/greetd/
+ls
+sudo nvim config.toml 
+qtgreet
+cd /etc/qtgreet/
+l
+ls
+nvim config.ini 
+greetwl
+wayfire
+sudo nvim /etc/greetd/
+qtgreet
+qtgreet -h
+greetwl
+sudo nvim /etc/greetd/config.toml 
+greetd
+sudo greetd
+cava
+cava -c qtgreet
+$env.QT_QPA_PLATFORM = wayland
+$env.QT_QPA_PLATFORM = "wayland"
+qtgreet
+cage
+wayfire
+wlroots
+paru -Qs qt6
+qtgreet
+cd hypr/conf
+z hypr/conf
+nvim hyprland-min.lua
+sudo mv hyprland-min.lua /etc/greetd/hyprland.conf
+cd /etc/qtgreet/
+ls
+cd ../greetd/
+start-hyprland -c /etc/greetd/hyprland.conf
+clear
+cd _
+cd /etc/greetd/
+sudo mv hyprland.conf ../qtgreet/
+nvim config.toml 
+start-hyprland -h
+hyprland -c
+sudo nvim config.toml 
+cd /etc/qtgreet/
+sudo nvim hyprland.conf 
+suo mv hyprland.conf hyprland.lua
+sudo mv hyprland.conf hyprland.lua
+cd ../greetd/
+sudo nvim config.toml 
+paru -Rns greetd greetd-qtgreet 
+paru -S greetd greetd-regreet 
+paru -S ly
+sudo systemctl enable ly
+sudo systemctl enable ly@.service 
+sudo systemctl enable ly@tty1.service
+clear
+sudo systemctl disable getty@tty1.service
+cd /etc/ly
+sudo nvim config.ini 
+cd ../pam.d/
+ls
+sudo nvim ly
+cd /etc/ly
+ly
+:q
+ly-dm 
+ly-dm
+cd /etc/pam.d/
+nvim ly 
+sudo nvim ly
+ly-dm
+nvim ly
+sudo nvim ly
+ly-dm
+nvim ly
+sudo nvim ly
+ly-dm
+sudo nvim ly
+sudo nvim login
+sudo nvim ly
+ly-dm
+sudo nvim ly
+ly-dm
+sudo nvim ly
+ly
+ly-dm 
+cd /etc/ly
+sudo nvim ly
+paru -Rns lbn
+z scripts
+fzf
+cd /usr/share/sounds
+ls
+cd freedesktop/
+ls
+cd stereo/
+ls
+paru -S mpv
+mpv bell.oga 
+mpv --no-terminal bell.oga
+pwd
+nvim noti-sound
+z swaync
+nvim config.json 
+mpv --no-terminal bell.oga
+mpv alarm-clock-elapsed.oga 
+mpv audio-channel-front-left.oga 
+mpv message-new-instant.oga 
+ls
+mpv complete.oga 
+z scripts
+chmod +x noti-sound 
+notify-send "RGetting list of available Wi-Fi networks"
+play
+./noti-sound
+nvim noti-sound 
+bash
+notify-send "RGetting list of available Wi-Fi networks"
+bash
+notify-send "RGetting list of available Wi-Fi networks"
+./noti-sound
+notify-send "RGetting list of available Wi-Fi networks"
+nvim config.json 
+notify-send "RGetting list of available Wi-Fi networks"
+/home/ashutosh/.config/scripts/noti-sound
+nvim noti-sound 
+notify-send "RGetting list of available Wi-Fi networks"
+ls
+./noti-sound
+rm -rf test.txt
+ls
+notify-send "RGetting list of available Wi-Fi networks"
+cat noti-sound 
+nvim noti-sound 
+ls
+notify-send "RGetting list of available Wi-Fi networks"
+killall swaync; G_MESSAGES_DEBUG=all swaync
+notify-send "RGetting list of available Wi-Fi networks"
+killall swaync; G_MESSAGES_DEBUG=all swaync
+notify-send "RGetting list of available Wi-Fi networks"
+cd Downloads/
+ls
+unzip Dotfiles-mako-.config-mako-icons.zip 
+ls
+rm -rf Dotfiles-mako-.config-mako-icons.zip
+mkdir ~/.config/swaync/icons
+mv * ~/.config/swaync/icons/
+ls
+z scripts
+ls
+nvim battery-alert
+./battery-alert
+cat /sys/class/power_supply/BAT0/capacity<\n>
+cat /sys/class/power_supply/BAT0
+cat /sys/class/power_supply/BAT0/power_now 
+clear
+z scripts
+cat lock-battery.sh 
+cat /sys/class/power_supply/BAT0/status 
+cat /sys/class/power_supply/BAT0/status
+fd battery /usr/share/icons
+paru -S fd 
+fd battery /usr/share/icons
+fd battery /usr/share/icons | wl-copy
+cd /etc/udev/rules.d/
+sudo nvim 90-batify.rules
+sudo udevadm control --reload-rules
+cat /sys/class/power_supply/BAT0/status
+sudo udevadm monitor --environment --udev --subsystem-match=power_supply
+nvim battery-alert
+rm -rf battery-alert
+nvim 90-batify.rules 
+sudo nvim 90-batify.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger --subsystem-match=power_supply
+nvim 90-batify.rules 
+sudo nvim 90-batify.rules
+nvim 90-batify.rules 
+sudo udevadm control --reload-rules
+journalctl -t udev-power -n 20
+sudo /bin/su ashutosh -c 'XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus /usr/bin/notify-send -u low -i battery-charging "Battery status" "Test from udev-style env"'
+sudo /bin/su ashutosh -c 'XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus /usr/bin/notify-send -u low -i /usr/share/icons/Papirus-Light/24x24/panel/battery-full-charging.svg "Battery status" "Icon path test"'
+sudo nvim 90-batify.rules
+sudo udevadm control --reload-rules
+nvim 90-batify.rules 
+sudo nvim 90-batify.rules
+nvim power-plug-event
+nvim battery-check
+nvim ~/.config/systemd/user/battery-check.service
+~/.config/systemd/user/battery-check.timer
+nvim ~/.config/systemd/user/battery-check.timer
+chmod +x ~/.config/scripts/power-plug-event<\n>chmod +x ~/.config/scripts/battery-check<\n><\n>sudo udevadm control --reload-rules<\n><\n>systemctl --user daemon-reload<\n>systemctl --user enable --now battery-check.timer
+~/.config/scripts/power-plug-event unplugged
+~/.config/scripts/power-plug-event plugged
+~/.config/scripts/battery-check
+nvim power-plug-event
+notify-send -a "Test App" "RGetting list of available Wi-Fi networks"
+notify-send -a "Test App" -r "90" "RGetting list of available Wi-Fi networks"
+notify-send -a "Test App" -p "90" -r "90" "RGetting list of available Wi-Fi networks"
+notify-send -a "Test App" --replace-id "90" "RGetting list of available Wi-Fi networks"
+nvim power-plug-event
+nvim battery-check 
+nvim 90-batify.rules 
+sudo code 90-batify.rules 
+sudo code 90-batify.rules --no-sandbox
+clear
+sudo nvim 90-batify.rules
+nvim battery-full
+nvim power-plug-event
+exit
+z kitty
+nvim kitty.conf 
+cat /sys/class/power_supply/BAT0/status
+cat /sys/class/power_supply/BAT0/capacity<\n>
+cat /etc/udev/rules.d/90-batify.rules 
+z scripts
+ls
+cat battery-full 
+ls /run/user/1000
+ls /run/user/1000/battery-notify/
+ls
+ls /run/user/1000/battery-notify/
+cat battery-full 
+cat power-plug-event 
+cat /etc/udev/rules.d/90-batify.rules 
+cat /sys/class/power_supply/BAT0/capacity
+cd .ssh
+ls -l
+ssh 10.0.0.224
+clear
+ssh ashutosh@10.0.0.224
+ssh ashutosh@10.0.0.224 -i id_ed25519 
+ssh root@10.0.0.224 -i id_ed25519
+cat /sys/class/power_supply/BAT0/capacity
+cat /sys/class/power_supply/BAT0/status
+nvim power-plug-event
+sudo udevadm control --reload-rules
+cat /sys/class/power_supply/BAT0/status
+sudo nvim /etc/udev/rules.d/90-batify.rules 
+sudo udevadm control --reload-rules
+ssh -i id_ed25519 ashutosh@10.0.0.224
+clear
+cd
+cd .config
+ls
+cd systemd
+ls
+cd user/
+ls
+systemctl --user status battery-check.service 
+systemctl --user status battery-check.timer
+pacman -Qe
+pacman -Qe | awk {print $1}
+sudo pacman -Qkk | rg "MODIFIED"
+clear
+open ~/.bash_history | lines
+atuin import bash
+atuin import nushell
+atuin import nu
+atuin history list --format "{directory}	{command}" | save ~/atuin-full-history.txt
+sudo cat /root/.bash_history
+wc
+wc -l atuin-full-history.txt 
+systemctl --user list-unit-files --state=enabled | save ~/enabled-user-units.txtE
+cat enabled-user-units.txt 
+ls
+rm -rf enabled-user-units.txtE
+systemctl --user list-unit-files --state=enabled
+systemctl list-unit-files --state=enabled
+ystemctl start swayosd-libinput-backend.service
+systemctl start swayosd-libinput-backend.service
+sudo systemctl start swayosd-libinput-backend.service
+sudo systemctl status swayosd-libinput-backend.service
+sudo systemctl status mpd.service
+paru --version
+hypridle
+clear
+z hypr/conf
+ls
+cd ../
+ls
+hyprctl dispatch dpms off
+hyprctl dispatch 'hl.dsp.dpms({ action = "off" })'
+z hypr
+nvim hypridle.conf 
+paru -S pandoc-bin 
+paru
+paru -S pandoc-bin
+paru -S discord 
+clear
+paru -S aws-cli-v2 
+paru -S awsvpnclient 
+c
+sudo systemctl enable awsvpnclient && sudo systemctl start awsvpnclient
+sudo systemctl enable awsvpnclient and sudo systemctl start awsvpnclient
+sudo systemctl enable awsvpnclient; sudo systemctl start awsvpnclient
+clear
+paru chrome
+clear
+paru -S google-chrome 
+paru -S moonlight-qt 
+ssh -i id_ed25519 ashutosh@10.0.0.224
+pacman -Qe
+pacman -Qe | awk {print $1} | wl-copy
+paru -S diffnav
+paru -S docker
+paru -S docker-buildx docker-compose
+paru -S espeak-ng
+paru -S iloader-bin
+paru -S imagemagik
+paru -S imagemagick
+paru -S lazysql
+playerctl 
+clear
+paru -S mesa-utils neofetch
+paru -S obsidian-bin pam-u2f piper-tts piper-voices-en-us speech-dispatcher
+paru -S nsxiv terraform udiskie unrar uxplay wlr-randr yarn zoom 
+paru -S nsxiv terraform udiskie unrar uxplay yarn zoom
+ssh ashutosh@10.0.0.224
+ssh rog.local
+paru -S nwg-look
+clear
+ssh rog.local
+cd .ssh
+chmod 600 id_*
+cd
+ssh rog.local
+clear
+z scripts
+ls
+nvim battery-check 
+ssh rog
+ssh rog.local
+cd .config/
+mkdir speech-dispatcher/modules
+cd speech-dispatcher/modules/
+nvim piper-tts-generic.conf
+cd ../
+nvim speechd.conf
+clear
+espeak-ng "Test"
+espeak-ng "This is a Test message"
+cd
+cd .aws
+mkdir .aws
+nvim .aws/config
+$env.AWS_PROFILE="dev"; aws sso login
+$env.AWS_PROFILE = "dev"; aws sso login
+aws s3 ls
+cd .config/gtk-3.0/
+ls
+nvim gtk.css
+cd ../
+cd gtk-4.0/
+ls
+nvim gtk.css 
+grep -R "border-spacing" ~/.config/gtk-* /usr/share/themes ~/.themes 2>/dev/null
+grep -R "border-spacing" ~/.config/gtk-* /usr/share/themes ~/.themes 2>/dev/null | wl-copy
+sudo nvim /usr/share/themes/Tokyonight-Dark/gtk-3.0/gtk.css
+zen
+zen-bin
+zen-browser 
+thunar
+paru -S tumbler
+thunar
+echo "Hello world" | piper \E    --model en_US-lessac-medium.onnx \E    --output_file output.wav
+echo "Hello world" | piper E    --model en_US-lessac-medium.onnx E    --output_file output.wav
+echo "Hello world" | piper --model en_US-lessac-medium.onnx --output_file output.wav
+spd-conf
+cd .config
+ls
+cd speech-dispatcher/
+ls
+cat speechd.conf 
+cd modules/
+ls
+piper
+ls
+cat espeak-ng.conf 
+ls
+nvim piper-tts-generic.conf
+spd-conf
+clear
+espeak-ng "This is a Test message"
+spd-say "Hello World"
+sh
+paru -S iptvnator-bin 
+btop
+clear
+rtop
+paru -S rtop 
+clea
+clear
+yazi
+z matugen
+cd .config/
+ls
+:q
+z scripts
+nvim matugen-starship
+code matugen-starship 
+nvim matugen-starship
+nvim starship.toml 
+clear
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+code starship.toml 
+nvim config.toml 
+z kitty
+nvim kitty.conf 
+:q
+exit
+z matugen
+nvim .
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+nvim templates/matugen-starship.toml 
+z scripts
+nvim starship.toml 
+nvim matugen-starship 
+clear
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+z nvim
+ls
+cd lua
+:q
+exit
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+clear
+pkill wleave
+z matugen
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+z wleave
+ls
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+bash -c 'pkill -SIGUSR1 wleave && wleave --service'
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+bash -c 'pkill -SIGUSR1 wleave && wleave --service'
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+wleave --help
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+clear
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/japan.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+~/.config/scripts/wallpaper ~/backgrounds/goku.jpg
+~/.config/scripts/wallpaper ~/backgrounds/leaf.png
+let pkgs = (paru -Qdtq); if ($pkgs | is-not-empty) { paru -Rns ...$pkgs }
+bash
+clear
+ssh rog.local
+exit
+exit
+nvim config.toml 
+clear
+cd .local/share/
+cd
+cd .local/share/
+ls
+cd chezmoi
+ls
+clear
+cd
+chezmoi diff
+clear
+z chezmoi
+ls
+chezmoi add ~/.tmux.conf 
+chezmoi add ~/.bashrc
+ls
+cd dot_config/
+ls
+chezmoi forget wlogout/
+ls
+chezmoi destroy wlogout/
+ls
+cd wlogout/
+ls
+cd ../
+chezmoi destroy ~/.config/wlogout
+ls
+chezmoi add ~/.config/wleave
+ls
+chezmoi add ~/.config/hypr
+chezmoi add ~/.config/kitty
+chezmoi add ~/.config/matugen

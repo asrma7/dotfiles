@@ -1,0 +1,7 @@
+hl.env("EDITOR", "nvim")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("QT_QPA_PLATFORMTHEME", "kde")
+hl.env("XDG_MENU_PREFIX", "plasma-")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")

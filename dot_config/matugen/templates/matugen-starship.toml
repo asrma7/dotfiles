@@ -1,0 +1,32 @@
+[palettes.matugen]
+base = "{{colors.surface.default.hex}}"
+surface = "{{colors.surface_container.default.hex}}"
+surface_high = "{{colors.surface_container_high.default.hex}}"
+text = "{{colors.on_surface.default.hex}}"
+muted = "{{colors.on_surface_variant.default.hex}}"
+
+primary = "{{colors.primary.default.hex}}"
+on_primary = "{{colors.on_primary.default.hex}}"
+secondary = "{{colors.secondary.default.hex}}"
+on_secondary = "{{colors.on_secondary.default.hex}}"
+tertiary = "{{colors.tertiary.default.hex}}"
+on_tertiary = "{{colors.on_tertiary.default.hex}}"
+
+error = "{{colors.error.default.hex}}"
+on_error = "{{colors.on_error.default.hex}}"
+
+white = "#ffffff"
+black = "#000000"
+
+node_green = "#68a063"
+c_blue = "#5c8dbc"
+rust_orange = "#dea584"
+go_cyan = "#00add8"
+dart_blue = "#0175c2"
+php_purple = "#777bb4"
+java_red = "#e76f00"
+kotlin_purple = "#7f52ff"
+haskell_purple = "#5e5086"
+python_blue = "#3776ab"
+docker_blue = "#2496ed"
+conda_green = "#44a833"

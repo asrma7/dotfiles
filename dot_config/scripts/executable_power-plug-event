@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+APP_NAME="Power Monitor"
+
+STATE_DIR="${XDG_RUNTIME_DIR:-/run/user/1000}/battery-notify"
+mkdir -p "$STATE_DIR"
+
+BAT="/sys/class/power_supply/BAT0"
+
+ICON_CHARGING="/usr/share/icons/Papirus-Light/24x24/panel/battery-full-charging.svg"
+ICON_UNPLUGGED="/usr/share/icons/Papirus-Light/24x24/panel/battery-missing.svg"
+
+case "$1" in
+  plugged)
+    rm -f "$STATE_DIR"/low "$STATE_DIR"/critical "$STATE_DIR"/final "$STATE_DIR"/suspend "$STATE_DIR"/full
+
+    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_CHARGING" \
+      "Battery status" \
+      "Charging cable is now plugged."
+    ;;
+
+  unplugged)
+    capacity="$(cat "$BAT/capacity")"
+
+    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_UNPLUGGED" \
+      "Battery status" \
+      "Charging cable has been unplugged. Battery is at ${capacity}%."
+
+    /home/ashutosh/.config/scripts/battery-check
+    ;;
+
+  *)
+    exit 1
+    ;;
+esac
