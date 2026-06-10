@@ -110,7 +110,7 @@ post_hook = "~/.config/scripts/matugen-vscode"
 # Starship
 [templates.starship]
 input_path = '~/.config/matugen/templates/matugen-starship.toml'
-output_path = '~/tmp/matugen-starship.toml'
+output_path = '/tmp/matugen-starship.toml'
 post_hook = "~/.config/scripts/matugen-starship"
 
 #Wleave

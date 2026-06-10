@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 STARSHIP_CONFIG="$HOME/.config/starship.toml"
-PALETTE_FILE="$HOME/tmp/matugen-starship.toml"
+PALETTE_FILE="/tmp/matugen-starship.toml"
 
 tmpfile="$(mktemp)"
 
