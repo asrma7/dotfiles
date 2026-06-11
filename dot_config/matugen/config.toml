@@ -104,17 +104,21 @@ post_hook = 'pkill -SIGUSR1 nvim'
 # VSCode
 [templates.vscode]
 input_path = '~/.config/matugen/templates/matugen-vscode.json'
-output_path = "/tmp/matugen-vscode.json"
-post_hook = "~/.config/scripts/matugen-vscode"
+output_path = "~/.config/Code/User/settings.json"
 
 # Starship
 [templates.starship]
 input_path = '~/.config/matugen/templates/matugen-starship.toml'
-output_path = '/tmp/matugen-starship.toml'
-post_hook = "~/.config/scripts/matugen-starship"
+output_path = '~/.config/starship.toml'
 
 #Wleave
 [templates.wleave]
 input_path = '~/.config/matugen/templates/matugen-wleave.css'
 output_path = '~/.config/wleave/matugen-wleave.css'
 post_hook = "bash -c 'pkill wleave; wleave --service >/dev/null 2>&1 &'"
+
+#Tmux
+[templates.tmux]
+input_path = '~/.config/matugen/templates/matugen-tmux.conf'
+output_path = '~/.config/tmux/matugen-tmux.conf'
+post_hook = 'tmux source-file ~/.config/tmux/matugen-tmux.conf'
