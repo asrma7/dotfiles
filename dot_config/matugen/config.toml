@@ -104,7 +104,8 @@ post_hook = 'pkill -SIGUSR1 nvim'
 # VSCode
 [templates.vscode]
 input_path = '~/.config/matugen/templates/matugen-vscode.json'
-output_path = "~/.config/Code/User/settings.json"
+output_path = "/tmp/matugen-vscode.json"
+post_hook = "~/.config/scripts/matugen-vscode"
 
 # Starship
 [templates.starship]
