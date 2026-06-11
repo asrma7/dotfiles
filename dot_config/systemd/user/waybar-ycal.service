@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 $INSTALL_DIR/popup.py
+ExecStart=/usr/bin/python3 %h/.config/waybar-ycal/popup.py
 Restart=on-failure
 RestartSec=3
 

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Browser Dispatcher
+Comment=Dispatches URLs to the appropriate browser based on rules
+Exec=/home/ashutosh/.config/scripts/browser-dispatcher %u
+Terminal=false
+NoDisplay=true
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;x-scheme-handler/http;x-scheme-handler/https;

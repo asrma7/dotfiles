@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+url="$1"
+
+case "$url" in
+    https://meet.google.com/*|https://g.co/meet/*)
+        google-chrome-stable "$url"
+        ;;
+    *)
+        zen-browser "$url"
+        ;;
+esac
