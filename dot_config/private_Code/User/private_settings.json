@@ -36,6 +36,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "redhat.telemetry.enabled": true,
+  "todo-tree.ripgrep.ripgrep": "/usr/sbin/rg",
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.windows": "C:\\Users\\ashut\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe"
   },
