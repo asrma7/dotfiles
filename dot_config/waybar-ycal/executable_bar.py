@@ -3,7 +3,8 @@ import json
 import datetime
 import os
 
-CACHE_FILE = os.path.expanduser('~/.cache/waybar-ycal/events.json')
+CACHE_FILE = os.path.expanduser("~/.cache/waybar-ycal/events.json")
+
 
 def load_events():
     if os.path.exists(CACHE_FILE):
@@ -14,15 +15,16 @@ def load_events():
             pass
     return {}
 
+
 now = datetime.datetime.now()
 today = now.date()
 events = load_events()
 today_events = events.get(today.isoformat(), [])
 
 output = {
-    "text": f"\U000f00ed  {now.strftime('%A %I:%M %p').lstrip('0')}",
+    "text": f"\U000f00ed  {now.strftime('%d %b %Y %A').lstrip('0')}",
     "tooltip": "",
-    "class": "has-events" if today_events else ""
+    "class": "has-events" if today_events else "",
 }
 
 print(json.dumps(output))
