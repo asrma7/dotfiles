@@ -123,3 +123,9 @@ post_hook = "bash -c 'pkill wleave; wleave --service >/dev/null 2>&1 &'"
 input_path = '~/.config/matugen/templates/matugen-tmux.conf'
 output_path = '~/.config/tmux/matugen-tmux.conf'
 post_hook = 'tmux source-file ~/.config/tmux/matugen-tmux.conf'
+
+#CliphistUI
+[templates.cliphistui]
+input_path = '~/.config/matugen/templates/matugen-cliphist-ui.css'
+output_path = '~/.config/cliphist-ui/matugen-cliphist-ui.css'
+post_hook = 'pkill -SIGUSR1 cliphist-ui'

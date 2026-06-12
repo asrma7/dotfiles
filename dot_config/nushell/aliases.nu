@@ -6,7 +6,6 @@ alias nvc = nvim ~/.config/nvim/
 alias catt = bat --paging=never
 
 alias work = cd ~/projects
-alias dot = chezmoi cd
 
 alias :q = exit
 
@@ -71,3 +70,11 @@ alias ase = atuin scripts edit
 alias asn = atuin scripts new
 
 alias venv = sh -i -c 'source .venv/bin/activate ; nu'
+
+alias ccu = chezmoi update
+alias cca = chezmoi add
+alias ccr = chezmoi forget
+alias ccd = chezmoi cd
+alias cce = chezmoi edit
+alias ccs = chezmoi status
+alias cca = chezmoi apply

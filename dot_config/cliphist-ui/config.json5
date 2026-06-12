@@ -1,0 +1,35 @@
+{
+  window: {
+    width: 760,
+    height: 620,
+    position: "center",
+    offset_x: 0,
+    offset_y: 0,
+  },
+
+  search: {
+    placeholder: "Search clipboard...",
+  },
+
+  list: {
+    max_text_chars: 180,
+  },
+
+  image: {
+    width: 260,
+    height: 140,
+    show_details: true,
+    preserve_aspect_ratio: true,
+    rounded_corners: false,
+    concurrent_jobs: 3,
+  },
+
+  behavior: {
+    close_on_copy: true,
+    reload_on_open: true,
+    start_in_insert: false,
+    show_keybinds: true,
+    show_vim_mode: true,
+    click_to_copy: "single",
+  },
+}

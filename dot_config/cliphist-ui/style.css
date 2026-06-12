@@ -1,0 +1,57 @@
+@import url("./matugen-cliphist-ui.css");
+
+window.cliphist-ui-window {
+  color: @on_background;
+  font-family: IosevkaAsrma7 Nerd Font;
+  font-size: 14px;
+}
+
+.cliphist-root {
+  background: @background;
+  border: 0;
+  border-radius: 0;
+  padding: 10px;
+}
+
+.cliphist-search {
+  background: @surface;
+  color: @on_surface;
+  border-radius: 0;
+}
+
+.cliphist-list row {
+  background: @background;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 8px 10px;
+}
+
+.cliphist-list row:selected {
+  background: @tertiary;
+  color: @on_tertiary;
+}
+
+.cliphist-mode-normal {
+  background: @muted;
+}
+
+.cliphist-mode-insert {
+  background: @tertiary;
+}
+
+.cliphist-keyhint-key {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 0;
+}
+
+.cliphist-status,
+.cliphist-muted,
+.cliphist-keyhint-action {
+  color: @on_surface;
+}
+
+.cliphist-thumb-placeholder {
+  background: @surface;
+  border-radius: 0;
+}
