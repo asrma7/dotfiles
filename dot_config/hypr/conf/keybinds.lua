@@ -74,7 +74,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("swayosd-client --playerctl play"), { l
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("swayosd-client --playerctl previous"), { locked = true })
 
 hl.bind(secondMod .. " + L", hl.dsp.exec_cmd("hyprlock -q"))
-hl.bind(secondMod .. " + V", hl.dsp.exec_cmd("~/projects/cliphist-ui/target/release/clipboard-ui"))
+hl.bind(secondMod .. " + V", hl.dsp.exec_cmd("cliphist-ui"))
 
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("xdg-open http://about:blank"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("code"))
