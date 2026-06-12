@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ROFI_THEME="$HOME/.config/rofi/clipboard-history.rasi"
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/cliphist-thumbnails"
+
+mkdir -p "$CACHE_DIR"
+
+mapfile -t history < <(cliphist list)
+
+image_icon() {
+  local line="$1"
+  local id="$2"
+  local thumb="$CACHE_DIR/$id.png"
+  local raw mime
+
+  if [ -s "$thumb" ]; then
+    printf '%s' "$thumb"
+    return
+  fi
+
+  raw="$(mktemp)"
+
+  if printf '%s\n' "$line" | cliphist decode > "$raw" 2>/dev/null; then
+    mime="$(file --mime-type -b "$raw")"
+
+    if [[ "$mime" == image/* ]]; then
+      magick "$raw" -auto-orient -thumbnail 96x96 "$thumb" >/dev/null 2>&1 || true
+    fi
+  fi
+
+  rm -f "$raw"
+
+  [ -s "$thumb" ] && printf '%s' "$thumb"
+}
+
+clear_history() {
+  local confirm
+
+  confirm="$(
+    printf 'Cancel\nClear clipboard history\n' |
+      rofi -dmenu \
+        -i \
+        -theme "$ROFI_THEME" \
+        -theme-str 'entry { placeholder: "Clear clipboard history?"; }'
+  )" || exit 0
+
+  [ "$confirm" = "Clear clipboard history" ] || exit 0
+
+  cliphist wipe
+  wl-copy --clear || true
+}
+
+print_entries() {
+  local line id preview display icon
+
+  printf '%s\0display\x1f%s\x1fpermanent\x1ftrue\n' \
+    "__clear_clipboard_history__" \
+    "Clear history"
+
+  for line in "${history[@]}"; do
+    id="${line%%$'\t'*}"
+    preview="${line#*$'\t'}"
+    display="$preview"
+    icon=""
+
+    if [[ "$preview" == "[[ binary data"* ]]; then
+      display="Image"
+      icon="$(image_icon "$line" "$id")"
+    fi
+
+    printf '%s\0display\x1f%s\x1fmeta\x1f%s' "$display" "$display" "$display"
+
+    if [ -n "$icon" ]; then
+      printf '\x1ficon\x1f%s' "$icon"
+    fi
+
+    printf '\n'
+  done
+}
+
+selected_index="$(
+  print_entries |
+    rofi -dmenu \
+      -i \
+      -no-custom \
+      -theme "$ROFI_THEME" \
+      -format i
+)" || exit 0
+
+[[ "$selected_index" =~ ^[0-9]+$ ]] || exit 0
+
+if [ "$selected_index" -eq 0 ]; then
+  clear_history
+fi
+
+history_index=$((selected_index - 1))
+[ "${history[$history_index]+set}" = "set" ] || exit 0
+
+printf '%s\n' "${history[$history_index]}" | cliphist decode | wl-copy
