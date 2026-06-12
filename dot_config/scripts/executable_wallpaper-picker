@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BACKGROUND_DIR="$HOME/backgrounds"
+ROFI_THEME="$HOME/.config/rofi/wallpaper-picker.rasi"
+WALLPAPER_SCRIPT="$HOME/.config/scripts/wallpaper"
+
+if [ ! -d "$BACKGROUND_DIR" ]; then
+  /usr/bin/notify-send -a "Wallpaper Picker" -u critical \
+    "Wallpaper folder not found" \
+    "$BACKGROUND_DIR does not exist."
+  exit 1
+fi
+
+mapfile -t wallpapers < <(
+  find "$BACKGROUND_DIR" -maxdepth 1 -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) |
+    sort
+)
+
+if [ "${#wallpapers[@]}" -eq 0 ]; then
+  /usr/bin/notify-send -a "Wallpaper Picker" -u normal \
+    "No wallpapers found" \
+    "Add jpg, png, or webp images to $BACKGROUND_DIR."
+  exit 0
+fi
+
+print_wallpapers() {
+  local file name
+
+  for file in "${wallpapers[@]}"; do
+    name="${file##*/}"
+    printf '%s\0icon\x1f%s\x1fmeta\x1f%s\n' "$name" "$file" "$name"
+  done
+}
+
+selected_index="$(
+  print_wallpapers |
+    rofi -dmenu \
+      -i \
+      -show-icons \
+      -theme "$ROFI_THEME" \
+      -p "Wallpaper" \
+      -format i
+)" || exit 0
+
+[[ "$selected_index" =~ ^[0-9]+$ ]] || exit 0
+
+"$WALLPAPER_SCRIPT" "${wallpapers[$selected_index]}"
