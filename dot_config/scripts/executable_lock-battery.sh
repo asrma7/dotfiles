@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-status="$(cat /sys/class/power_supply/BAT0/status)"
-level="$(cat /sys/class/power_supply/BAT0/capacity)"
+battery_info="$(acpi -b | head -n 1)"
+[ -n "$battery_info" ] || exit 0
+
+status="${battery_info#*: }"
+status="${status%%,*}"
+level="${battery_info#*, }"
+level="${level%%\%*}"
+level="${level//[^0-9]/}"
 
 if [[ ("$status" == "Discharging") || ("$status" == "Full") ]]; then
   if [[ "$level" -eq "0" ]]; then

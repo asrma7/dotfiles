@@ -2,34 +2,70 @@
 
 APP_NAME="Power Monitor"
 
-STATE_DIR="${XDG_RUNTIME_DIR:-/run/user/1000}/battery-notify"
-mkdir -p "$STATE_DIR"
+export XDG_RUNTIME_DIR="/run/user/1000"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+export DISPLAY="${DISPLAY:-:0}"
 
-BAT="/sys/class/power_supply/BAT0"
+sleep 1
+
+STATE_DIR="$XDG_RUNTIME_DIR/battery-notify"
+mkdir -p "$STATE_DIR"
 
 ICON_CHARGING="/usr/share/icons/Papirus-Light/24x24/panel/battery-full-charging.svg"
 ICON_UNPLUGGED="/usr/share/icons/Papirus-Light/24x24/panel/battery-missing.svg"
+ICON_FULL="/usr/share/icons/Papirus-Light/24x24/panel/battery-full-charged.svg"
 
-case "$1" in
-  plugged)
-    rm -f "$STATE_DIR"/low "$STATE_DIR"/critical "$STATE_DIR"/final "$STATE_DIR"/suspend "$STATE_DIR"/full
+battery_info="$(acpi -b | head -n 1)"
+[ -n "$battery_info" ] || exit 0
 
-    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_CHARGING" \
-      "Battery status" \
-      "Charging cable is now plugged."
+status="${battery_info#*: }"
+status="${status%%,*}"
+
+capacity="${battery_info#*, }"
+capacity="${capacity%%\%*}"
+capacity="${capacity//[^0-9]/}"
+
+event_type="${1:-}"
+event_state="${4:-}"
+
+case "$event_type:$event_state" in
+  ac_adapter:*)
+    if [ "$status" = "Discharging" ]; then
+      [ ! -f "$STATE_DIR/unplugged" ] || exit 0
+
+      rm -f "$STATE_DIR"/plugged "$STATE_DIR"/full
+      touch "$STATE_DIR/unplugged"
+
+      /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_UNPLUGGED" \
+        "Battery status" \
+        "Charging cable has been unplugged. Battery is at ${capacity}%."
+
+      /home/ashutosh/.config/scripts/battery-check
+    else
+      [ ! -f "$STATE_DIR/plugged" ] || exit 0
+
+      rm -f "$STATE_DIR"/low "$STATE_DIR"/critical "$STATE_DIR"/final "$STATE_DIR"/suspend "$STATE_DIR"/full "$STATE_DIR"/unplugged
+      touch "$STATE_DIR/plugged"
+
+      /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_CHARGING" \
+        "Battery status" \
+        "Charging cable is now plugged."
+    fi
     ;;
 
-  unplugged)
-    capacity="$(cat "$BAT/capacity")"
+  battery:*)
+    [ "$status" != "Discharging" ] || exit 0
+    [ "$capacity" = "100" ] || exit 0
+    [ ! -f "$STATE_DIR/full" ] || exit 0
 
-    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_UNPLUGGED" \
+    touch "$STATE_DIR/full"
+
+    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_FULL" \
       "Battery status" \
-      "Charging cable has been unplugged. Battery is at ${capacity}%."
-
-    /home/ashutosh/.config/scripts/battery-check
+      "Battery is fully charged."
     ;;
 
   *)
-    exit 1
+    exit 0
     ;;
 esac

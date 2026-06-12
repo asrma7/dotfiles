@@ -2,9 +2,6 @@
 
 APP_NAME="Power Monitor"
 
-BAT="/sys/class/power_supply/BAT0"
-AC="/sys/class/power_supply/AC"
-
 STATE_DIR="${XDG_RUNTIME_DIR:-/run/user/1000}/battery-notify"
 mkdir -p "$STATE_DIR"
 
@@ -12,11 +9,16 @@ ICON_LOW="/usr/share/icons/Papirus-Light/24x24/panel/battery-caution.svg"
 ICON_CRITICAL="/usr/share/icons/Papirus-Light/24x24/panel/battery-empty.svg"
 ICON_SUSPEND="/usr/share/icons/Papirus-Light/24x24/panel/battery-empty.svg"
 
-capacity="$(cat "$BAT/capacity")"
-status="$(cat "$BAT/status")"
-online="$(cat "$AC/online")"
+battery_info="$(acpi -b | head -n 1)"
+[ -n "$battery_info" ] || exit 0
 
-if [ "$online" = "1" ] || [ "$status" != "Discharging" ]; then
+status="${battery_info#*: }"
+status="${status%%,*}"
+capacity="${battery_info#*, }"
+capacity="${capacity%%\%*}"
+capacity="${capacity//[^0-9]/}"
+
+if [ "$status" != "Discharging" ]; then
   rm -f "$STATE_DIR"/low "$STATE_DIR"/critical "$STATE_DIR"/final "$STATE_DIR"/suspend
   exit 0
 fi
@@ -37,7 +39,7 @@ if [ "$capacity" -le 10 ] && [ ! -f "$STATE_DIR/critical" ]; then
   touch "$STATE_DIR/critical"
 fi
 
-if [ "$capacity" -le 5 ] && [ ! -f "$STATE_DIR/final" ]; then
+if [ "$capacity" -le 7 ] && [ ! -f "$STATE_DIR/final" ]; then
   /usr/bin/notify-send -a "$APP_NAME" -u critical -i "$ICON_SUSPEND" \
     "Battery status" \
     "Battery is at ${capacity}%. Suspending soon unless plugged in."
@@ -45,7 +47,7 @@ if [ "$capacity" -le 5 ] && [ ! -f "$STATE_DIR/final" ]; then
   touch "$STATE_DIR/final"
 fi
 
-if [ "$capacity" -le 3 ] && [ ! -f "$STATE_DIR/suspend" ]; then
+if [ "$capacity" -le 5 ] && [ ! -f "$STATE_DIR/suspend" ]; then
   touch "$STATE_DIR/suspend"
 
   /usr/bin/notify-send -a "$APP_NAME" -u critical -i "$ICON_SUSPEND" \
@@ -54,11 +56,16 @@ if [ "$capacity" -le 3 ] && [ ! -f "$STATE_DIR/suspend" ]; then
 
   sleep 20
 
-  capacity="$(cat "$BAT/capacity")"
-  status="$(cat "$BAT/status")"
-  online="$(cat "$AC/online")"
+  battery_info="$(acpi -b | head -n 1)"
+  [ -n "$battery_info" ] || exit 0
 
-  if [ "$online" = "0" ] && [ "$status" = "Discharging" ] && [ "$capacity" -le 3 ]; then
+  status="${battery_info#*: }"
+  status="${status%%,*}"
+  capacity="${battery_info#*, }"
+  capacity="${capacity%%\%*}"
+  capacity="${capacity//[^0-9]/}"
+
+  if [ "$status" = "Discharging" ] && [ "$capacity" -le 5 ]; then
     systemctl suspend
   fi
 fi
