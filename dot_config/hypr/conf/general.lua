@@ -1,3 +1,5 @@
+local colors = require("matugen.matugen-hyprland")
+
 -- MONITOR CONFIG
 hl.monitor({
 	output = "eDP-1",
@@ -34,8 +36,8 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgb(9b8d7f)", "rgba(59595900)", "rgb(aaaaaa)" }, angle = 45 },
-			inactive_border = "rgba(59595900)",
+			active_border = { colors = { colors.primary, colors.primary_container, colors.tertiary, colors.primary }, angle = 45 },
+			inactive_border = colors.alpha(colors.outline_variant, "33"),
 		},
 		resize_on_border = true,
 
@@ -64,8 +66,8 @@ hl.config({
 			range = 10,
 			offset = { 0, 2 },
 			render_power = 5,
-			color = "rgb(9b8d7f)",
-			color_inactive = "rgba(242424aa)",
+			color = colors.alpha(colors.primary, "66"),
+			color_inactive = colors.alpha(colors.shadow, "66"),
 		},
 		-- Dim
 		dim_inactive = true,
