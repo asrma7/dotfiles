@@ -33,13 +33,13 @@ output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
 
 # Hyprland
 [templates.hyprland]
-input_path = '~/.config/matugen/templates/matugen-hyprland.conf'
-output_path = '~/.config/hypr/matugen/matugen-hyprland.conf'
+input_path = '~/.config/matugen/templates/matugen-hyprland.lua'
+output_path = '~/.config/hypr/matugen/matugen-hyprland.lua'
 
 # Hyprlock
 [templates.hyprlock]
 input_path = '~/.config/matugen/templates/matugen-hyprlock.conf'
-output_path = '~/.config/hypr/hyprlock/matugen/matugen-hyprlock.conf'
+output_path = '~/.config/hypr/matugen/matugen-hyprlock.conf'
 
 # Waybar
 [templates.waybar]

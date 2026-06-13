@@ -5,8 +5,8 @@
 **/.git
 **/.gitignore
 
-.config/hypr/hyprlock/matugen/matugen-hyprlock.conf
-.config/hypr/matugen/matugen-hyprland.conf
+.config/hypr/matugen/matugen-hyprlock.conf
+.config/hypr/matugen/matugen-hyprland.lua
 .config/kitty/matugen/colors-matugen.conf
 .config/nvim/lua/asrma7/matugen-nvim.lua
 .config/rofi/matugen/matugen-rofi.rasi
