@@ -76,5 +76,4 @@ alias cca = chezmoi add
 alias ccr = chezmoi forget
 alias ccd = chezmoi cd
 alias cce = chezmoi edit
-alias ccs = chezmoi status
-alias cca = chezmoi apply
+alias ccs = chezmoi apply

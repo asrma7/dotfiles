@@ -1,4 +1,4 @@
 terminal = "kitty"
 fileManager = "dolphin"
 codeEditor = "code"
-menu = "rofi -show drun"
+menu = "pkill rofi || rofi -show drun"

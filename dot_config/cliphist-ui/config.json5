@@ -28,7 +28,7 @@
     close_on_copy: true,
     reload_on_open: true,
     start_in_insert: false,
-    show_keybinds: true,
+    show_keybinds: false,
     show_vim_mode: true,
     click_to_copy: "single",
   },

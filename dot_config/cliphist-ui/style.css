@@ -41,7 +41,7 @@ window.cliphist-ui-window {
 
 .cliphist-keyhint-key {
   background: @surface;
-  border: 1px solid @border;
+  border: 0;
   border-radius: 0;
 }
 
