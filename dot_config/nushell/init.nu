@@ -1,22 +1,11 @@
-$env.keybindings = $env.config.keybindings ++ [
-  {
-    name: reload_config
-    modifier: alt
-    keycode: char_r
-    mode: [emacs, vi_normal, vi_insert]
-    event: {
-      send: executehostcommand,
-      cmd: $"exec nu"
-    }
-  }
-]
+source keybindings.nu
 
 $env.table = ($env.config.table | merge {
   index_mode: "never"
 })
 
 $env.completions = ($env.config.completions | merge {
-  case_sensitive: true
+  case_sensitive: false
 })
 
 $env.config = ($env.config | merge {
