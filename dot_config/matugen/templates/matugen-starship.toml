@@ -1,0 +1,225 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[┏](fg:white)\
+$os\
+$shell\
+$username\
+$hostname\
+$git_branch\
+$git_status\
+$env_var\
+$fill\
+$c\
+$rust\
+$golang\
+$dart\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$conda\
+$jobs\
+$cmd_duration\
+$line_break\
+[┗](fg:white)\
+$directory\
+$line_break\
+$character"""
+
+palette = 'matugen'
+
+[os]
+disabled = false
+style = "fg:on_primary bg:primary"
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Windows = ""
+Ubuntu = "󰕈"
+SUSE = " "
+Raspbian = "󰐿 "
+Kali = " "
+Mint = "󰣭 "
+Macos = "󰀵"
+Manjaro = " "
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = " "
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = " "
+CentOS = " "
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = " "
+
+[shell]
+disabled = false
+style = "fg:on_secondary bg:secondary"
+format = '[  $indicator ]($style)'
+
+[username]
+show_always = true
+style_user = "fg:on_tertiary bg:tertiary"
+style_root = "fg:on_error bg:error"
+format = '[  $user ]($style)'
+
+[hostname]
+ssh_only = false
+style = "fg:on_tertiary bg:tertiary"
+ssh_symbol = '🌐 '
+format = '[/ $hostname ]($style)'
+
+[directory]
+style = "fg:text"
+format = '[\[](fg:primary)[   $path ]($style)[\]](fg:primary)'
+truncation_length = 3
+truncation_symbol = "…/"
+use_os_path_sep = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Projects" = "󰲋 "
+"projects" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:secondary"
+format = '[[ $symbol $branch ](fg:on_secondary bg:secondary)]($style)'
+
+[git_status]
+style = "bg:secondary"
+format = '[[($all_status$ahead_behind )](fg:on_secondary bg:secondary)]($style)'
+
+[env_var]
+variable = "AWS_PROFILE"
+symbol = ''
+style = 'bg:tertiary'
+format = '[[ $symbol( $env_value )](fg:on_tertiary bg:tertiary)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:node_green"
+format = '[[ $symbol( $version) ](fg:black bg:node_green)]($style)'
+
+[c]
+symbol = " "
+style = "bg:c_blue"
+format = '[[ $symbol( $version) ](fg:white bg:c_blue)]($style)'
+
+[rust]
+symbol = " "
+style = "bg:rust_orange"
+format = '[[ $symbol( $version) ](fg:black bg:rust_orange)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:go_cyan"
+format = '[[ $symbol( $version) ](fg:black bg:go_cyan)]($style)'
+
+[dart]
+symbol = " "
+style = "bg:dart_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[php]
+symbol = " "
+style = "bg:php_purple"
+format = '[[ $symbol( $version) ](fg:white bg:php_purple)]($style)'
+
+[java]
+symbol = " "
+style = "bg:java_red"
+format = '[[ $symbol( $version) ](fg:white bg:java_red)]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:kotlin_purple"
+format = '[[ $symbol( $version) ](fg:white bg:kotlin_purple)]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:haskell_purple"
+format = '[[ $symbol( $version) ](fg:white bg:haskell_purple)]($style)'
+
+[python]
+symbol = " "
+style = "bg:python_blue"
+format = '[[ $symbol( $version) (${virtualenv}) ](fg:white bg:python_blue)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:docker_blue"
+format = '[[ $symbol( $context) ](fg:white bg:docker_blue)]($style)'
+
+[conda]
+style = "bg:conda_green"
+format = '[[ $symbol( $environment) ](fg:black bg:conda_green)]($style)'
+
+[line_break]
+disabled = false
+
+[fill]
+symbol = ' '
+
+[jobs]
+symbol = ' '
+style = 'red'
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:primary)'
+error_symbol = '[](bold fg:error)'
+vimcmd_symbol = '[](bold fg:primary)'
+vimcmd_replace_one_symbol = '[](bold fg:tertiary)'
+vimcmd_replace_symbol = '[](bold fg:tertiary)'
+vimcmd_visual_symbol = '[](bold fg:secondary)'
+
+[palettes.matugen]
+base = "{{colors.surface.default.hex}}"
+surface = "{{colors.surface_container.default.hex}}"
+surface_high = "{{colors.surface_container_high.default.hex}}"
+text = "{{colors.on_surface.default.hex}}"
+muted = "{{colors.on_surface_variant.default.hex}}"
+
+primary = "{{colors.primary.default.hex}}"
+on_primary = "{{colors.on_primary.default.hex}}"
+secondary = "{{colors.secondary.default.hex}}"
+on_secondary = "{{colors.on_secondary.default.hex}}"
+tertiary = "{{colors.tertiary.default.hex}}"
+on_tertiary = "{{colors.on_tertiary.default.hex}}"
+
+error = "{{colors.error.default.hex}}"
+on_error = "{{colors.on_error.default.hex}}"
+
+white = "#ffffff"
+black = "#000000"
+
+node_green = "#68a063"
+c_blue = "#5c8dbc"
+rust_orange = "#dea584"
+go_cyan = "#00add8"
+dart_blue = "#0175c2"
+php_purple = "#777bb4"
+java_red = "#e76f00"
+kotlin_purple = "#7f52ff"
+haskell_purple = "#5e5086"
+python_blue = "#3776ab"
+docker_blue = "#2496ed"
+conda_green = "#44a833"

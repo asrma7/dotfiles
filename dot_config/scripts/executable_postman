@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+thisdir="/opt/postman"
+
+# 1. Get the original URL from the first argument
+ORIGINAL_URL="$1"
+
+# 2. Check if the URL contains a query string and the 'code' parameter
+if [[ "$ORIGINAL_URL" == *"?"* ]] && [[ "$ORIGINAL_URL" == *"code="* ]]; then
+    # Separate the base URL from the query string
+    BASE_URL="${ORIGINAL_URL%%\?*}"
+    QUERY_STRING="${ORIGINAL_URL#*\?}"
+
+    # Extract the 'code' parameter and its value
+    # This regex looks for 'code=' followed by anything until an '&' or the end of the string
+    CODE_PARAM=$(echo "$QUERY_STRING" | grep -oP 'code=[^&]+')
+
+    # Remove the 'code' parameter from the original query string to avoid duplicates
+    # We remove 'code=value' and any leading/trailing ampersands
+    CLEAN_QUERY=$(echo "$QUERY_STRING" | sed -e "s/$CODE_PARAM//g" -e 's/&&/&/g' -e 's/^&//' -e 's/&$//')
+
+    # 3. Reconstruct the URL with 'code' as the FIRST parameter
+    # This ensures Postman sees the code before hitting an ampersand bug
+    NEW_URL="${BASE_URL}?${CODE_PARAM}&${CLEAN_QUERY}"
+    
+    # Execute Postman with the rearranged URL
+    exec "$thisdir/Postman" "$NEW_URL"
+else
+    # If no code is present, just launch Postman normally
+    exec "$thisdir/Postman" "$@"
+fi

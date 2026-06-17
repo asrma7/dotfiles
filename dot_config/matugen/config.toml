@@ -1,0 +1,131 @@
+#  ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓
+#  ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃
+#  ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗
+#
+
+# Global Configs
+[config]
+version_check = false
+
+# Templates
+
+# Kitty
+[templates.kitty]
+input_path = '~/.config/matugen/templates/matugen-kitty.conf'
+output_path = '~/.config/kitty/matugen/colors-matugen.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+# Bat
+[templates.bat]
+input_path = '~/.config/matugen/templates/matugen-bat-colors.tmTheme'
+output_path = '~/.config/bat/themes/matugen-bat-colors.tmTheme'
+post_hook = 'bat cache --build'
+
+# Spicetify
+[templates.spicetify]
+input_path = '~/.config/matugen/templates/spotify-colors.ini'
+output_path = '~/.config/spicetify/Themes/Comfy/color.ini'
+
+# Rofi
+[templates.rofi]
+input_path = '~/.config/matugen/templates/matugen-rofi.rasi'
+output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
+
+# Hyprland
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/matugen-hyprland.lua'
+output_path = '~/.config/hypr/matugen/matugen-hyprland.lua'
+
+# Hyprlock
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/matugen-hyprlock.conf'
+output_path = '~/.config/hypr/matugen/matugen-hyprlock.conf'
+
+# Waybar
+[templates.waybar]
+input_path = '~/.config/matugen/templates/matugen-waybar.css'
+output_path = '~/.config/waybar/matugen/matugen-waybar.css'
+# post_hook = 'pkill -SIGUSR2 waybar'
+
+# Waybar-Ycal
+[templates.waybar-ycal]
+input_path = '~/.config/matugen/templates/matugen-waybar-ycal.toml'
+output_path = '~/.config/waybar-ycal/matugen/matugen-waybar-ycal.toml'
+
+# Swaync
+[templates.swaync]
+input_path = '~/.config/matugen/templates/matugen-swaync.css'
+output_path = '~/.config/swaync/matugen/matugen-swaync.css'
+post_hook = 'swaync-client -rs'
+
+# Swayosd
+[templates.swayosd]
+input_path = '~/.config/matugen/templates/matugen-swayosd.css'
+output_path = '~/.config/swaync/matugen/matugen-swayosd.css'
+post_hook = '~/.config/scripts/restart-swayosd'
+
+
+# Gtk3
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+# Gtk4
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+# Qt5
+[templates.qt5]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen-qt5ct.conf'
+
+# Qt6
+[templates.qt6]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen-qt6ct.conf'
+
+# Cava
+[templates.cava]
+input_path = '~/.config/matugen/templates/matugen-cava'
+output_path = '~/.config/cava/config'
+
+# Zathura
+[templates.zathura]
+input_path = '~/.config/matugen/templates/matugen-zathurarc'
+output_path = '~/.config/zathura/matugen-zathurarc'
+
+# Neovim
+[templates.neovim]
+input_path = '~/.config/matugen/templates/matugen-nvim.lua'
+output_path = '~/.config/nvim/lua/asrma7/matugen-nvim.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+
+# VSCode
+[templates.vscode]
+input_path = '~/.config/matugen/templates/matugen-vscode.json'
+output_path = "/tmp/matugen-vscode.json"
+post_hook = "~/.config/scripts/matugen-vscode"
+
+# Starship
+[templates.starship]
+input_path = '~/.config/matugen/templates/matugen-starship.toml'
+output_path = '~/.config/starship.toml'
+
+#Wleave
+[templates.wleave]
+input_path = '~/.config/matugen/templates/matugen-wleave.css'
+output_path = '~/.config/wleave/matugen-wleave.css'
+post_hook = "bash -c 'pkill wleave; wleave --service >/dev/null 2>&1 &'"
+
+#Tmux
+[templates.tmux]
+input_path = '~/.config/matugen/templates/matugen-tmux.conf'
+output_path = '~/.config/tmux/matugen-tmux.conf'
+post_hook = 'tmux source-file ~/.config/tmux/matugen-tmux.conf'
+
+#CliphistUI
+[templates.cliphistui]
+input_path = '~/.config/matugen/templates/matugen-cliphist-ui.css'
+output_path = '~/.config/cliphist-ui/matugen-cliphist-ui.css'
+post_hook = 'pkill -SIGUSR1 cliphist-ui'

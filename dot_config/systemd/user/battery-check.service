@@ -1,0 +1,6 @@
+[Unit]
+Description=Check battery level and notify
+
+[Service]
+Type=oneshot
+ExecStart=/home/ashutosh/.config/scripts/battery-check

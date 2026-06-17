@@ -1,0 +1,190 @@
+{
+    "height": 30,
+    "spacing": 4,
+    "modules-left": [
+        "idle_inhibitor",
+        "ext/workspaces",
+        "hyprland/submap",
+        "custom/media",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "custom/ycal",
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "mpris",
+        "power-profiles-daemon",
+        "pulseaudio",
+        "custom/earbuds",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "custom/notification",
+        "custom/power"
+    ],
+    "ext/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
+        "max-length": 30
+    },
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 12,
+        "tooltip": false
+    },
+    "custom/ycal": {
+        "exec": "~/.config/waybar-ycal/bar.py",
+        "on-click": "~/.config/waybar-ycal/toggle.sh",
+        "interval": 60,
+        "return-type": "json"
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip": false
+    },
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "  ",
+            "mpv": "🎵"
+        },
+        "tooltip": false,
+        "status-icons": {
+            "paused": ""
+        },
+        "dynamic-order": [
+            "title",
+            "artist",
+            "album"
+        ],
+        "title-len": 20,
+        "ellipis": "…",
+        "dynamic-len": 40
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 10,
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "tooltip": false,
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+  "custom/earbuds": {
+    "return-type": "json",
+    "exec": "waybar-earbud --watch --preset icon",
+    "on-click": "waybar-earbud --toggle"
+  },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "",
+            "dnd-notification": " ",
+            "dnd-none": "󰂛",
+            "inhibited-notification": " ",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": " ",
+            "dnd-inhibited-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "shutdown": "poweroff",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    }
+}

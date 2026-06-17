@@ -1,0 +1,150 @@
+@import url("./matugen/matugen-waybar.css");
+* {
+	font-family:
+		Font Awesome,
+		Roboto,
+		Arial,
+		sans-serif;
+	font-size: 14px;
+	border-radius: 20px;
+}
+
+window#waybar {
+	background-color: transparent;
+	color: @on_primary;
+}
+
+button {
+	border: none;
+	-gtk-icon-shadow: none;
+	-gtk-icon-effect: none;
+}
+button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+	background: inherit;
+}
+
+.modules-right {
+	background-color: @background;
+	margin: 2px 10px 0 0;
+	padding: 5px;
+}
+.modules-center {
+	background-color: @background;
+	margin: 2px 0 0 0;
+	padding: 5px;
+}
+.modules-left {
+	background-color: @background;
+	margin: 2px 0 0 5px;
+	padding: 5px;
+}
+
+#window {
+	color: @on_background;
+	margin-right: 10px;
+}
+
+#submap {
+    color: @on_background;
+    margin-right: 10px;
+}
+
+#workspaces button {
+	padding: 0 8px;
+	margin: 0 2px;
+	background-color: @tertiary;
+	color: @on_tertiary;
+}
+#workspaces button:hover,
+#workspaces button.active:hover {
+	box-shadow: inherit;
+	background-color: @secondary;
+	color: @on_secondary;
+}
+
+#workspaces button.focused {
+	background-color: @primary_container;
+	color: @primary;
+}
+
+#workspaces button.active {
+	background-color: @primary_container;
+	color: @primary;
+}
+
+#mode {
+	color: @error;
+}
+
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#pulseaudio,
+#custom-earbuds,
+#tray,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon,
+#custom-ycal,
+#clock,
+#custom-notification,
+#custom-power,
+#mpris {
+	padding: 0 10px;
+	background-color: @tertiary;
+}
+
+#custom-power {
+	padding: 5px 10px 0 10px;
+}
+
+#battery.charging,
+#battery.plugged {
+	color: @on_primary;
+	background-color: #26a65b;
+}
+
+@keyframes blink {
+	to {
+		background-color: @on_primary;
+		color: @primary;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: @error_container;
+	color: @error;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+	padding-right: 15px;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: @error_container;
+}
+
+menu {
+	border-radius: 15px;
+	background: @surface;
+	color: @on_surface;
+}
+menuitem {
+	border-radius: 15px;
+}
+

@@ -1,0 +1,6 @@
+require("conf/autostart")
+require("conf/animations")
+require("conf/env")
+require("conf/general")
+require("conf/keybinds")
+require("conf/rules")

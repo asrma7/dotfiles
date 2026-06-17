@@ -1,0 +1,34 @@
+/***
+ *    ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓  ┳┓┏┓┏┓┳
+ *    ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃━━┣┫┃┃┣ ┃
+ *    ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗  ┛┗┗┛┻ ┻
+ *                             
+ */
+
+ * {
+    active-background: #87d6bd;
+    active-foreground: #00382c;
+    normal-background: #0f1512;
+    normal-foreground: #dee4e0;
+    urgent-background: #a9cbe2;
+    urgent-foreground: #0e3446;
+
+    alternate-active-background: #0f1512;
+    alternate-active-foreground: #dee4e0;
+    alternate-normal-background: #0f1512;
+    alternate-normal-foreground: #dee4e0;
+    alternate-urgent-background: #0f1512;
+    alternate-urgent-foreground: #dee4e0;
+
+    selected-active-background: #0f1512;
+    selected-active-foreground: #dee4e0;
+    selected-normal-background: #a9cbe2;
+    selected-normal-foreground: #0e3446;
+    selected-urgent-background: #b2ccc2;
+    selected-urgent-foreground: #1d352e;
+
+    background-color: #0f1512;
+    background: #0f1512;
+    foreground: #dee4e0;
+    border-color: #0f1512;
+}

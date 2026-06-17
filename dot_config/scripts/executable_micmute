@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+icon="high"
+
+if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
+    icon="muted"
+fi
+
+swayosd-client --custom-message "Microphone" --custom-icon "source-volume-$icon-symbolic"

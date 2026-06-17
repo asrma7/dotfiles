@@ -1,0 +1,6 @@
+AGENTS.md
+.claude/
+.codex
+.vscode/
+.actrc
+__pycache__
