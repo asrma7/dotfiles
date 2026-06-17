@@ -36,7 +36,7 @@ case "$event_type:$event_state" in
       rm -f "$STATE_DIR"/plugged "$STATE_DIR"/full
       touch "$STATE_DIR/unplugged"
 
-      /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_UNPLUGGED" \
+      /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u low -i "$ICON_UNPLUGGED" \
         "Battery status" \
         "Charging cable has been unplugged. Battery is at ${capacity}%."
 
@@ -47,7 +47,7 @@ case "$event_type:$event_state" in
       rm -f "$STATE_DIR"/low "$STATE_DIR"/critical "$STATE_DIR"/final "$STATE_DIR"/suspend "$STATE_DIR"/full "$STATE_DIR"/unplugged
       touch "$STATE_DIR/plugged"
 
-      /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_CHARGING" \
+      /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u low -i "$ICON_CHARGING" \
         "Battery status" \
         "Charging cable is now plugged."
     fi
@@ -60,7 +60,7 @@ case "$event_type:$event_state" in
 
     touch "$STATE_DIR/full"
 
-    /usr/bin/notify-send -a "$APP_NAME" -u low -i "$ICON_FULL" \
+    /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u low -i "$ICON_FULL" \
       "Battery status" \
       "Battery is fully charged."
     ;;

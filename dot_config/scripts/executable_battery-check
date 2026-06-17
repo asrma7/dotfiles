@@ -24,7 +24,7 @@ if [ "$status" != "Discharging" ]; then
 fi
 
 if [ "$capacity" -le 20 ] && [ ! -f "$STATE_DIR/low" ]; then
-  /usr/bin/notify-send -a "$APP_NAME" -u normal -i "$ICON_LOW" \
+  /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u normal -i "$ICON_LOW" \
     "Battery status" \
     "Battery is low at ${capacity}%."
 
@@ -32,7 +32,7 @@ if [ "$capacity" -le 20 ] && [ ! -f "$STATE_DIR/low" ]; then
 fi
 
 if [ "$capacity" -le 10 ] && [ ! -f "$STATE_DIR/critical" ]; then
-  /usr/bin/notify-send -a "$APP_NAME" -u critical -i "$ICON_CRITICAL" \
+  /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u critical -i "$ICON_CRITICAL" \
     "Battery status" \
     "Battery is critically low at ${capacity}%."
 
@@ -40,7 +40,7 @@ if [ "$capacity" -le 10 ] && [ ! -f "$STATE_DIR/critical" ]; then
 fi
 
 if [ "$capacity" -le 7 ] && [ ! -f "$STATE_DIR/final" ]; then
-  /usr/bin/notify-send -a "$APP_NAME" -u critical -i "$ICON_SUSPEND" \
+  /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u critical -i "$ICON_SUSPEND" \
     "Battery status" \
     "Battery is at ${capacity}%. Suspending soon unless plugged in."
 
@@ -50,7 +50,7 @@ fi
 if [ "$capacity" -le 5 ] && [ ! -f "$STATE_DIR/suspend" ]; then
   touch "$STATE_DIR/suspend"
 
-  /usr/bin/notify-send -a "$APP_NAME" -u critical -i "$ICON_SUSPEND" \
+  /usr/bin/notify-send -a "$APP_NAME" -h string:synchronous:battery -u critical -i "$ICON_SUSPEND" \
     "Battery status" \
     "Battery is at ${capacity}%. Suspending in 20 seconds."
 
