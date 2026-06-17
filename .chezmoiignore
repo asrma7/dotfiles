@@ -18,4 +18,6 @@
 .config/zathura/matugen-zathurarc
 .config/cliphist-ui/matugen-cliphist-ui.css
 .config/Thunar/accels.scm
+.config/chezmoi/key.txt
+.config/chezmoi/chezmoistate.boltdb
 **/*.log
