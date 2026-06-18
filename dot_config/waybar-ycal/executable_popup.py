@@ -663,7 +663,7 @@ class CalendarPopup(Gtk.ApplicationWindow):
             name.set_hexpand(True)
             name.set_ellipsize(Pango.EllipsizeMode.END)
             name.set_tooltip_text(
-                f"{label}\nClick to open video\nRight-click to copy video URI"
+                f"{label}\nClick to open meeting link\nRight-click to copy meeting URI"
                 if video_uri else label
             )
             name.add_css_class('event-name')
