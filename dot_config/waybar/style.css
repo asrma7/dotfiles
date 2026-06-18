@@ -138,13 +138,3 @@ button:hover {
 	-gtk-icon-effect: highlight;
 	background-color: @error_container;
 }
-
-menu {
-	border-radius: 15px;
-	background: @surface;
-	color: @on_surface;
-}
-menuitem {
-	border-radius: 15px;
-}
-
