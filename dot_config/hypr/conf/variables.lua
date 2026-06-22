@@ -87,8 +87,8 @@ brightnessDown = "swayosd-client --brightness -5"
 -- Screenshots
 -- ============================================================================
 
-screenshotFull = "grim - | swappy -f -"
-screenshotRegion = 'grim -g "$(slurp)" - | swappy -f -'
+screenshotFull = "rishot"
+screenshotRegion = "rishot monitor"
 
 -- ============================================================================
 -- Autostart

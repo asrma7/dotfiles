@@ -7,6 +7,7 @@ return {
 	require("asrma7.coding.languages.python"),
 	require("asrma7.coding.languages.go"),
 	require("asrma7.coding.languages.dart"),
+	require("asrma7.coding.languages.qml"),
 	require("asrma7.coding.languages.web"),
 	require("asrma7.coding.languages.terraform"),
 	require("asrma7.coding.languages.docker"),
