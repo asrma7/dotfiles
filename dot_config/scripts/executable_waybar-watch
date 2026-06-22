@@ -1,10 +1,25 @@
-#!/bin/bash
-waybar-earbud --service &
-CONFIG_FILES="$HOME/.config/waybar/config.jsonc $HOME/.config/waybar/style.css $HOME/.config/waybar/matugen/matugen-waybar.css"
-trap "killall waybar" EXIT
-while true; do
-    waybar &
-    inotifywait -e create,modify $CONFIG_FILES
-    killall waybar
-done
+#!/usr/bin/env bash
 
+waybar-earbud --service &
+
+CONFIG_FILES=(
+  "$HOME/.config/waybar/config.jsonc"
+  "$HOME/.config/waybar/style.css"
+  "$HOME/.config/waybar/matugen/matugen-waybar.css"
+)
+
+cleanup() {
+  pkill -x waybar
+  pkill -f "waybar-earbud --service"
+}
+trap cleanup EXIT
+
+while true; do
+  waybar &
+  WAYBAR_PID=$!
+
+  inotifywait -e create,modify,delete,move "${CONFIG_FILES[@]}"
+
+  kill "$WAYBAR_PID" 2>/dev/null
+  wait "$WAYBAR_PID" 2>/dev/null
+done
