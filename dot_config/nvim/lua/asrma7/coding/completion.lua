@@ -46,6 +46,9 @@ return {
 			end
 
 			cmp.setup({
+				enabled = function()
+					return vim.bo.filetype ~= "AgenticInput"
+				end,
 				preselect = cmp.PreselectMode.None,
 				snippet = {
 					expand = function(args)
@@ -81,6 +84,10 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+			})
+
+			cmp.setup.filetype("AgenticInput", {
+				sources = {},
 			})
 		end,
 	},

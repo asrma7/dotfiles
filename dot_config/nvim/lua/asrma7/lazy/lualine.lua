@@ -28,6 +28,10 @@ return {
             theme = "base16",
             globalstatus = false,
             always_divide_middle = false,
+            disabled_filetypes = {
+                statusline = { "AgenticChat", "AgenticInput", "AgenticCode", "AgenticFiles", "AgenticDiagnostics", "AgenticTodos" },
+                winbar = { "AgenticChat", "AgenticInput", "AgenticCode", "AgenticFiles", "AgenticDiagnostics", "AgenticTodos" },
+            },
             section_separators = { left = "", right = "" },
             component_separators = { left = "│", right = "│" },
         },
