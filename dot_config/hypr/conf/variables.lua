@@ -10,6 +10,8 @@ imageEditor = "gimp -n"
 codeEditor = "code"
 notes = "obsidian"
 
+passordManager = "1password --quick-access"
+
 -- ============================================================================
 -- Launchers
 -- ============================================================================

@@ -18,6 +18,7 @@ hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(colorPicker))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(codeEditor))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browserBlank))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(passordManager))
 
 -- ============================================================================
 -- Window Management
